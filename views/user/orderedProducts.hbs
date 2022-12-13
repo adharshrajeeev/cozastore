@@ -389,7 +389,7 @@
 							  <p>Cancelled</p>
 							 {{/ifEquals }}
 							{{#ifEquals this.status 'Delivered'}}
-							<p><a href="" >Return</a></p>
+							 <button class="button-24" onclick="returnOrder('Returned','{{this._id}}','{{this.item}}','{{this.product.price}}','{{this.quantity}}')">Return Order</button>
 							{{/ifEquals}}
 							{{#ifEquals  this.status 'Shipped'}}
 							<p>Product Shipped</p>
@@ -455,7 +455,8 @@
 		data:{
 			status:value,
 			orderId:orderId,
-			productId:productId
+			productId:productId,
+			
 		},
 		success:(response)=>{
 	    	swal("Good job!", "You clicked the button!", "success");
@@ -464,6 +465,42 @@
 	})
   }
 </script>
+
+<script type="text/javascript">
+  
+  function returnOrder(value,orderId,productId,productPrice,productQuantity){
+	swal({
+    title: "Are you sure to Retun Order?",
+    text: "Once retrunws, you will not be able to recover this imaginary file!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  }).then((willDelete)=>{
+	if(willDelete){
+		$.ajax({
+		url:'/returnProduct',
+		method:'post',
+		data:{
+			status:value,
+			orderId:orderId,
+			productId:productId,
+			productPrice:productPrice,
+			productQuantity:productQuantity
+		},
+		success:(response)=>{
+	    	swal("Good job!", "You clicked the button!", "success");
+			location.reload();
+		}
+	})
+	}else {
+      swal("Your Product is safe!");
+    }
+  })
+	
+  }
+</script>
+
+
 
 
 </body>

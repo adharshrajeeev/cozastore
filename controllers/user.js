@@ -486,8 +486,10 @@ postconfirmOTP:(req,res)=>{
             let allAddress=await userHelper.getShippingAddress(req.session.user._id)
             let cartCount=await userHelper.getCartCount(req.session.user._id)
             let  wishlistCount=await userHelper.getWishlistCount(req.session.user._id)
+            let totalOrders=await userHelper.getUserTotalOrders(req.session.user._id)
+           
             userHelper.getUserDetails(req.session.user._id).then((user)=>{
-                res.render('user/userProfile',{user,allAddress,cartCount,wishlistCount})
+                res.render('user/userProfile',{user,allAddress,cartCount,wishlistCount,totalOrders})
               })
             
         }else
@@ -733,7 +735,22 @@ postSearchProducts:async(req,res)=>{
 
 paypalPaymentError:(req,res)=>{
     res.render('404',{layout:null})
-}
+},
+
+
+//--------------------------------------RETURN ORDERED PRODUCTS---------------------------------
+
+
+returnProduct:async(req,res)=>{
+    let user=req.session.user;
+    let description='Order Returned'
+    await userHelper.setWalletHistory(user,req.body,description);
+
+    await userHelper.returnOrderedProduct(req.body,user).then((response)=>{
+        res.json(response)
+    })
+
+  }
 
 
 }

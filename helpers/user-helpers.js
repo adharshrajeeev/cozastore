@@ -11,6 +11,7 @@ const Razorpay=require('razorpay');
 
 
 var paypal = require('paypal-rest-sdk');
+const { response } = require('express');
 
 
 
@@ -821,6 +822,22 @@ module.exports={
       })
      },
 
+
+     /* -------------------------------------------------------------------------- */
+  /*                               GET USER TOTAL ORDER COUNT                     */
+  /* -------------------------------------------------------------------------- */
+
+
+
+
+     getUserTotalOrders:(userId)=>{
+      return new Promise(async(resolve,reject)=>{
+       let totalOrders=await db.get().collection(collection.ORDER_COLLECTION).find({_id:ObjectId(userId)}).count();
+       console.log(totalOrders,"total")
+         resolve(totalOrders)
+      })
+     },
+
      
   /* -------------------------------------------------------------------------- */
   /*                                CANCEL ORDERS                               */
@@ -836,6 +853,12 @@ module.exports={
             resolve()
           })
      },
+
+
+
+
+
+
 
   /* -------------------------------------------------------------------------- */
   /*                               ORDERED PRODUCTS                              */
@@ -1146,6 +1169,70 @@ module.exports={
         resolve(products)
       }
     })
-  }
+  },
+
+
+   /* -------------------------------------------------------------------------- */
+  /*                       SET WALLET HISTORY                                   */
+  /* -------------------------------------------------------------------------- */
+
+
+  setWalletHistory:async(user,data,description)=>{
+    console.log(data,"heyeheyeheyeeheye t55555555555555555555")
+    let value1=parseInt(data.productPrice);
+    let quantity=parseInt(data.productQuantity);
+    let amount=parseInt(value1*quantity);
+
+    return new Promise(async(resolve,reject)=>{
+      let walletDetails;
+      walletDetails={
+        date:new Date().toDateString(),
+        orderId:data.orderId,
+        amount:amount,
+        description:data.status
+      }
+
+      let userDate=await db.get().collection(collection.USER_COLLECTION).findOne({_id:ObjectId(user._id)});
+      db.get().collection(collection.USER_COLLECTION).updateOne({_id:ObjectId(user._id)},{
+        $push:{
+            walletHistory:walletDetails
+        }
+      }).then((response)=>{
+        resolve(response)
+      })
+    })
+  },
+
+
+  /* -------------------------------------------------------------------------- */
+  /*                        RETURN ORDERED PRODUCT                              */
+  /* -------------------------------------------------------------------------- */
+
+  returnOrderedProduct:(orderDetails,user)=>{
+    return new Promise(async(resolve,reject)=>{
+      await db.get().collection(collection.ORDER_COLLECTION).updateOne({_id:ObjectId(orderDetails.orderId),"products.item":ObjectId(orderDetails.productId)},{
+        $set:{
+          "products.$.status":orderDetails.status
+        }
+      }).then(async(response)=>{
+        let value=orderDetails.productPrice;
+        let quantity=orderDetails.productQuantity;
+        let amount=parseInt(value*quantity)+user.wallet;
+
+        let data=await db.get().collection(collection.USER_COLLECTION).updateOne({_id:ObjectId(user._id)},{
+          $set:{
+            wallet:amount
+          }
+        })
+      })
+      
+      resolve({ status: true })
+    })
+  },
+
+
+
+
+  
   
 }

@@ -6,7 +6,7 @@ const { userhomePage,getLogin,getSignup,postSignup,ChangeProductQuantity,postLog
        userCancelOrder,removeProductFrmCart,viewOrderedProducts,getCategoryWise,paymentVerify,postUserProfile,
        userCancelProduct,addUserAddress,setOrderedProductStatus,addDeliveryAaddress,editAddress,
        postEditUserAddress,deleteUserAddress,postCouponApply,postCouponRemove,displayWishList,addToWishList,removeProductFromWishlist,
-       getPaymentFailed,postSearchProducts,paypalPaymentError}=require('../controllers/user')
+       getPaymentFailed,postSearchProducts,paypalPaymentError,returnProduct}=require('../controllers/user')
 
 
 router.get('/',userhomePage)
@@ -54,7 +54,9 @@ router.get('/userCancelOrder',userCancelOrder)
 
 router.get('/userCancelProductOrder',userCancelProduct)
 router.post('/userOrderedProductsStatus',setOrderedProductStatus)
-router.post('/verifyPayment',paymentVerify)
+router.post('/verifyPayment',paymentVerify);
+
+router.post('/returnProduct',returnProduct)
 
 router.post('/applyCoupon',postCouponApply)
 router.post('/removeCoupon',postCouponRemove)
