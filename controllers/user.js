@@ -52,7 +52,7 @@ module.exports={
             res.redirect('/');
         }
         else{
-            res.render('user/user-login',{layout:'adminLogin-layout',"loginErr":req.session.loginErr});
+            res.render('user/userLogin',{layout:null,"loginErr":req.session.loginErr});
             req.session.loginErr=false;
             
         }
@@ -93,7 +93,7 @@ module.exports={
 
     getSignup:(req,res)=>{
         
-        res.render('user/user-signup',{layout:'adminLogin-layout'});
+        res.render('user/userSignUp',{layout:null});
     },
 
 
@@ -102,7 +102,7 @@ module.exports={
         if(response.status==false){
         
             req.session.UserSignUpError="USER ALREADY EXISTS"
-            res.render('user/user-signup',{layout:'adminLogin-layout',"UserSignUpError":req.session.UserSignUpError})
+            res.render('user/userSignUp',{layout:null,"UserSignUpError":req.session.UserSignUpError})
             req.session.UserSignUpError=false;
             
         }else{
@@ -164,7 +164,7 @@ module.exports={
 
  //----------------------------------OTP LOGIN-------------------------------------------//
  getotpPage:(req,res)=>{
-    res.render('user/user-otpLogin',{layout:'adminLogin-layout'});
+    res.render('user/userOtp',{layout:null});
  },
 
 
@@ -192,7 +192,7 @@ postOtp:(req,res)=>{
 //----------------------------------DISPLAY CONFIRM OTP PAGE----------------------------------------
 
 getconfirmOTP:(req,res)=>{
-    res.render('user/confirmOTP',{layout:'adminLogin-layout'})
+    res.render('user/userConfirmOtp',{layout:null})
 },
 
 
