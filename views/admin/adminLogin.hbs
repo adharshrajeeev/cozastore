@@ -72,7 +72,7 @@
  {{#if adminLoginError}}
  <p class="error" id="adminLoginError" style="color: red;">{{adminLoginError}}</p>
     {{/if}}
-<form action="" method="">
+<form method="post" class="register-form" id="login-form" action="/admin/adminLogin">
     <input type="email" name="email" id="your_name" placeholder=" Username"/>
     <input type="password" name="password" id="your_pass" placeholder="Password"/>
     <button type="submit"  id="signin" >Login</button>
