@@ -7,151 +7,76 @@
 	<title>Admin Login</title>
 </head>
 <style>
-	* {
+	body{
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  font-family: sans-serif;
+  background: #34495E;
 }
-
-body {
-  height: 100vh;
-  background-color: #ffffff;
-}
-
-.login {
+.box{
+  width: 300px;
+  padding: 40px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 350px;
-  padding: 40px;
+  background: #191919;
   text-align: center;
-  border-radius: 10px;
-  box-shadow: -5px -5px 10px #ffffff10, 5px 5px 15px #26224a66;
+  border-radius: 24px;
 }
-
-h1 {
-  color: #021c23;
-  font-weight: lighter;
+.box h3{
   text-transform: uppercase;
- 
+  color: white;
+  font-weight: 500;
 }
-
-.username, .password {
-  margin: 25px 0;
-  width: 100%;
+.box input[type="email"],.box input[type="password"]{
+  border: 0;
+  background: none;
+  display: block;
   text-align: center;
-}
-
-input[type="email"], input[type="password"] {
-  width: 100%;
-  height: 50px;
-  padding: 25px;
-  background: transparent;
-  border: none;
+  width: 200px;
+  height: 35px;
+  margin: 20px auto;
+  border: 2px solid #3498DB; 
+  border-radius: 24px;
+  color: white;
   outline: none;
-  border-radius: 50px;
-  color: #011115;
 }
-
-input[type="email"]:focus, input[type="password"]:focus {
-  box-shadow: inset -1.8px -1.8px 7px #6c656510, inset 1.8px 1.8px 10px #0f0d2277;
+.box input[type="email"]:focus,.box input[type="password"]:focus{
+  width: 250px;
+  border-color: #2ECC71;
+  
 }
-
-input[type="email"]::placeholder, input[type="password"]::placeholder {
-  color: #ecf0f155;
-}
-
-input[type="submit"] {
-  width: 100%;
-  height: 50px;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: #030b0d;
-  cursor: pointer;
-  font-size: 20px;
-  transition: transform .2s linear;
-}
-
-input[type="submit"]:hover {
-  transform: scale(1.25);
-}
-
-p {
-  margin: 20px 0 50px;
-  color: #031419;
-  font-size: 18px;
-}
-
-a {
-  color: #5352ed;
-  text-decoration: none;
-  transition: color .1s linear;
-}
-
-a:hover {
-  color: #3742fa
-}
-.error{ color: red; } 
-
-
-
-/* CSS */
-.button-9 {
-  appearance: button;
-  backface-visibility: hidden;
-  background-color: #405cf5;
-  border-radius: 6px;
-  border-width: 0;
-  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
-  font-size: 100%;
-  height: 44px;
-  line-height: 1.15;
-  margin: 12px 0 0;
-  outline: none;
-  overflow: hidden;
-  padding: 0 25px;
-  position: relative;
+.box button{
+  border: 0;
+  background: none;
+  display: block;
   text-align: center;
-  text-transform: none;
-  transform: translateZ(0);
-  transition: all .2s,box-shadow .08s ease-in;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: 100%;
+  width: 100px;
+  height: 35px;
+  margin: 20px auto;
+  border: 2px solid #2ECC71; 
+  border-radius: 24px;
+  outline: none;
+  color: white;
+  cursor: pointer;  
+}
+.box button:hover{
+  background-color: #2ECC71;
 }
 
-.button-9:disabled {
-  cursor: default;
-}
-
-.button-9:focus {
-  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
-}
 </style>
 <body>
-	<div class="login">
-      <h1> Admin Login </h1>
-	  <form method="post" class="register-form" id="login-form" action="/admin/adminLogin">
-      {{#if adminLoginError}}
-        <p class="error" id="adminLoginError" style="color: red;">{{adminLoginError}}</p>
-     {{/if}}
-	  <div class="username">
-         <input type="email" name="email" id="your_name" placeholder=" UserName"/>
-      </div>
-      <div class="password">
-       <input type="password" name="password" id="your_pass" placeholder="Password"/>
-      </div>
-      
-		<button type="submit" id="signin" class="button-9 ">Submit</button>
-	  </form>
-    </div>
+	<div class="box">
+<h3>Admin Login</h3>
+ {{#if adminLoginError}}
+ <p class="error" id="adminLoginError" style="color: red;">{{adminLoginError}}</p>
+    {{/if}}
+<form action="" method="">
+    <input type="email" name="email" id="your_name" placeholder=" Username"/>
+    <input type="password" name="password" id="your_pass" placeholder="Password"/>
+    <button type="submit"  id="signin" >Login</button>
+  </form>
+</div>
 </body>
 </html>
