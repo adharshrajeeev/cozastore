@@ -18,7 +18,7 @@ module.exports={
       }else{
         
           console.log(user)
-         res.render('admin/admin-login',{layout:'adminLogin-layout',"adminLoginError":req.session.adminLoginError})
+          res.render('admin/adminLogin',{layout:null,"adminLoginError":req.session.adminLoginError})
 
          req.session.adminLoginError=false;
          
