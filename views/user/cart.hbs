@@ -1,0 +1,353 @@
+<body >
+	
+	<!-- Header -->
+	<header class="header-v4">
+		<!-- Header desktop -->
+		<div class="container-menu-desktop">
+			<!-- Topbar -->
+			<div class="top-bar">
+				<div class="content-topbar flex-sb-m h-full container">
+					<div class="left-top-bar">
+						Free shipping for standard order over $100
+					</div>
+
+					<div class="right-top-bar flex-w h-full">
+					 <a href="/userLogin" class="flex-c-m trans-04 p-lr-25">
+                            {{#if user}}
+                             {{name.name}}
+                              <a href="/userProfile" class="flex-c-m trans-04 p-lr-25">
+                              My Account
+                             </a>
+                             <a href="/userLogout" class="flex-c-m trans-04 p-lr-25">
+                              LOGOUT
+                             </a>
+                            {{else}}
+                            LOGIN
+                            {{/if}}
+                        </a>
+					</div>
+				</div>
+			</div>
+
+			<div class="wrap-menu-desktop how-shadow1">
+				<nav class="limiter-menu-desktop container">
+					
+					<!-- Logo desktop -->		
+					<a href="/" class="logo">
+						<img src="../../Client/images/icons/logo-01.png" alt="IMG-LOGO">
+					</a>
+
+					<!-- Menu desktop -->
+					<div class="menu-desktop">
+						<ul class="main-menu">
+							<li>
+								<a href="/">Home</a>
+								<ul class="sub-menu">
+									<li><a href="index.html">Homepage 1</a></li>
+									<li><a href="home-02.html">Homepage 2</a></li>
+									<li><a href="home-03.html">Homepage 3</a></li>
+								</ul>
+							</li>
+
+							<li class="active-menu">
+								<a href="/products">Shop</a>
+							</li>
+
+							<li >
+								<a href="shoping-cart.html">Features</a>
+							</li>
+
+							<li>
+								<a href="blog.html">Blog</a>
+							</li>
+
+							<li>
+								<a href="about.html">About</a>
+							</li>
+
+							<li>
+								<a href="contact.html">Contact</a>
+							</li>
+						</ul>
+					</div>	
+
+					<!-- Icon header -->
+					<div class="wrap-icon-header flex-w flex-r-m">
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+							<i class="zmdi zmdi-search"></i>
+						</div>
+						{{#if user}}
+                        <a href="/cart">
+                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart icon-header-noti"  data-notify="{{cartCount}}">
+                            <i class="zmdi zmdi-shopping-cart"></i>
+                        </div>
+                        </a>
+                         <a href="/wishList"
+                            class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"  data-notify="{{wishlistCount}}">
+                            <i class="zmdi zmdi-favorite-outline"></i>
+                        </a>
+                        {{else}}
+                        <a href="/userLogin">
+                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+                            <i class="zmdi zmdi-shopping-cart"></i>
+                        </div>
+                        </a>
+                         <a href="/userLogin"
+                            class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+                            <i class="zmdi zmdi-favorite-outline"></i>
+                        </a>
+                        {{/if}}
+					</div>
+				</nav>
+			</div>	
+		</div>
+
+		<!-- Header Mobile -->
+		<div class="wrap-header-mobile">
+			<!-- Logo moblie -->		
+			<div class="logo-mobile">
+				<a href="index.html"><img src="../../Client/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+			</div>
+
+			<!-- Icon header -->
+			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
+					<i class="zmdi zmdi-search"></i>
+				</div>
+					{{#if user}}
+                        <a href="/cart">
+                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart icon-header-noti"  data-notify="{{cartCount}}">
+                            <i class="zmdi zmdi-shopping-cart"></i>
+                        </div>
+                        </a>
+                         <a href="/wishList"
+                            class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"  data-notify="{{wishlistCount}}">
+                            <i class="zmdi zmdi-favorite-outline"></i>
+                        </a>
+                        {{else}}
+                        <a href="/userLogin">
+                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+                            <i class="zmdi zmdi-shopping-cart"></i>
+                        </div>
+                        </a>
+                         <a href="/userLogin"
+                            class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+                            <i class="zmdi zmdi-favorite-outline"></i>
+                        </a>
+                        {{/if}}
+			</div>
+
+			<!-- Button show menu -->
+			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</div>
+		</div>
+
+
+		<!-- Menu Mobile -->
+		<div class="menu-mobile">
+			<ul class="topbar-mobile">
+				<li>
+					<div class="left-top-bar">
+						Free shipping for standard order over $100
+					</div>
+				</li>
+
+				<li>
+					<div class="right-top-bar flex-w h-full">
+					        {{#if user}}
+                             {{name.name}}
+                              <a href="" class="flex-c-m trans-04 p-lr-25">
+                              My Account
+                             </a>
+                             <a href="/userLogout" class="flex-c-m trans-04 p-lr-25">
+                              LOGOUT
+                             </a>
+                            {{else}}
+                            LOGIN
+                            {{/if}}
+					</div>
+				</li>
+			</ul>
+
+			<ul class="main-menu-m">
+				<li>
+					<a href="index.html">Home</a>
+					<ul class="sub-menu-m">
+						<li><a href="index.html">Homepage 1</a></li>
+						<li><a href="home-02.html">Homepage 2</a></li>
+						<li><a href="home-03.html">Homepage 3</a></li>
+					</ul>
+					<span class="arrow-main-menu-m">
+						<i class="fa fa-angle-right" aria-hidden="true"></i>
+					</span>
+				</li>
+
+				<li>
+					<a href="/products">Shop</a>
+				</li>
+
+				<li>
+					<a href="shoping-cart.html" >Features</a>
+				</li>
+
+				<li>
+					<a href="blog.html">Blog</a>
+				</li>
+
+				<li>
+					<a href="about.html">About</a>
+				</li>
+
+				<li>
+					<a href="contact.html">Contact</a>
+				</li>
+			</ul>
+		</div>
+
+		<!-- Modal Search -->
+		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+			<div class="container-search-header">
+				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+					<img src="../../Client/images/icons/icon-close2.png" alt="CLOSE">
+				</button>
+
+				<form class="wrap-search-header flex-w p-l-15">
+					<button class="flex-c-m trans-04">
+						<i class="zmdi zmdi-search"></i>
+					</button>
+					<input class="plh3" type="text" name="search" placeholder="Search...">
+				</form>
+			</div>
+		</div>
+	</header>
+
+	
+		
+
+
+
+	<!-- breadcrumb -->
+	<div class="container">
+		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+			<a href="" class="stext-109 cl8 hov-cl1 trans-04">
+				Home
+				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+			</a>
+
+			<span class="stext-109 cl4">
+				Shoping Cart
+			</span>
+		</div>
+	</div>
+		
+
+	<!-- Shoping Cart -->
+	<section class="bg0 p-t-75 p-b-85" >
+		
+		<div class="container" >
+			 {{#ifEquals cartCount '0'}}
+			   <div class="text-center mt-5 pt-5 " >
+                    <h1>YOUR CART IS EMPTY</h1>
+                    <br>
+                       <a href="/" style="width: 250px;" class="btn btn-secondary ">CONTINUE SHOPPINg</a>
+                </div>
+				{{else}}
+			<div class="row" >
+				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
+					<div class="m-l-25 m-r--38 m-lr-0-xl">
+						<div class="wrap-table-shopping-cart">
+							<table class="table-shopping-cart">
+								<tr class="table_head">
+									<th class="column-1">Product</th>
+									<th class="column-2"></th>
+									<th class="column-3">Price</th>
+									<th class="column-4">Quantity</th>
+									{{!-- <th class="column-5">Total</th> --}}
+									<th class="column-6">Option</th>
+								</tr>
+                               {{#each products}}
+								<tr class="table_row">
+		
+
+									<td class="column-1">
+										<div class="how-itemcart1">
+											<img src="/product-images/{{this.product._id}}.jpg" alt="IMG">
+										</div>
+									</td>
+									<td class="column-2">{{this.product.name}}</td>
+									<td class="column-3">$ {{this.product.price}}</td>
+									 
+									<td class="column-4">
+										<div class="wrap-num-product flex-w m-l-auto m-r-0">
+											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+												<button class="cartItemCount mr-0" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user}}',-1)"  >-</button>
+											</div>
+
+											{{!-- <input class="mtext-104 cl3 txt-center num-product" type="number" id="{{this.product._id}}" value="{{this.quantity}}"> --}}
+                                             <span   class="mtext-104 cl3 txt-center pt-2 num-product" id="{{this.product._id}}">{{this.quantity}}</span>
+											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+												<button class="cartItemCount mr-0" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user}}',1)" >+</button>
+											</div>
+										</div>
+									</td>
+									
+									{{!-- <td class="column-5">$ <span id="Total">{{../this.totalValue}}</span></td> --}}
+									<td class="column-6">  <a href="/removeProduct/{{this._id}}" class="text-danger"><i class="fas fa-trash fa-lg"></i></a></td>
+								</tr>
+						
+                               {{/each}}
+								
+							</table>
+						</div>
+
+						<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
+							<div class="flex-w flex-m m-r-20 m-tb-5">
+								<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="coupon" placeholder="Coupon Code">
+									
+								<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
+									Apply coupon
+								</div>
+							</div>
+
+							<div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
+								Update Cart
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
+					<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+						<h4 class="mtext-109 cl2 p-b-30">
+							Cart Totals
+						</h4>
+
+						<div class="flex-w flex-t bor12 p-b-13">
+							<div class="size-208">
+								<span class="stext-110 cl2">
+									Subtotal:   
+								</span>
+							</div>
+
+							<div class="size-209">
+							    <span>Rs.</span>
+								<span id="Total2" class="mtext-110 cl2">
+									 {{this.totalValue}}
+								</span>
+							</div> 
+						</div>
+                            <a href="/proceedToCheckOut">
+						<button type="button" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+						Proceed to Checkout
+						</button>
+						</a>	
+					</div>
+				</div>
+			</div>
+			{{/ifEquals}}
+		</div>
+	</section>
+</body>

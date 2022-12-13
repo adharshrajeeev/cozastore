@@ -1,0 +1,31 @@
+<body>
+    <br>
+   <a href="/admin/addBanners"><button  style="width:140px ;margin-left:50px" type="button" class="btn btn-primary">Add Banners</button></a> 
+    <br>
+    <table class="table">
+  <thead>
+    <tr>
+      <th >No</th>
+      <th >Name</th>
+      <th>Title</th>
+      <th >Image1</th>
+      <th >ACTIONS</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each banners}}
+    <tr>
+      <td >{{inc @index}}</td>
+      <td>{{this.name}}</td>
+      <td>{{this.title}}</td>
+      <td><img style="width:60px ;height:60px" src="/banner-images/{{this._id}}.jpg" alt=""></td>
+     
+      <td>
+        <a href="/admin/edit-banner?id={{this._id}}" class="btn btn-primary">EDIT</a>
+        <a href="/admin/delete-banner/{{this._id}}" class="btn btn-danger" onclick="return confirm('ARE YOU SURE TO DELETE  {{this.name}}')" >DELETE</a>
+        </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</body>

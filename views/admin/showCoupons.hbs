@@ -1,0 +1,44 @@
+<body>
+    <br>
+   <a href="/admin/addCoupons"><button  style="width:180px ;margin-left:50px" type="button" class="btn btn-primary">Add Coupons</button></a> 
+    <br>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Coupon-Name</th>
+      <th scope="col">Coupon-Id</th>
+      <th scope="col">Expiry Date</th>
+      <th scope="col">Percentage</th>
+      <th scope="col">Min Purchase Amount</th>
+      <th scope="col">Max Discount Amount</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>3
+     
+    </tr>
+  </thead>
+  <tbody>
+    {{#each coupons}}
+    <tr>
+        <td>{{inc @index}}</td>
+      <td>{{this.couponName}}</td>
+      <td>{{this.couponId}}</td>
+       <td>{{this.expDate}}</td>
+        <td>{{this.couponPercentage}}</td>
+      <td>{{this.minAmount}}</td>
+     
+      <td>{{this.maxdiscount}}</td>
+     
+      <td>
+        {{#if isblocked}}
+         <a href="/admin/unBlockUser?id={{this._id}}" class="btn btn-success">UNBLOCK</a>
+          {{else}}
+        <a href="/admin/blockUser?id={{this._id}}" class="btn btn-danger" onclick="return confirm('ARE YOU SURE TO BLOCK : {{this.name}}')">BLOCK</a>
+         {{/if}}
+         </td>
+
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</body>

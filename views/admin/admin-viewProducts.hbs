@@ -1,0 +1,42 @@
+<body>
+    <br>
+   <a href="/products/admin-addProduct"><button  style="width:140px ;margin-left:50px" type="button" class="btn btn-primary">Add Products</button></a> 
+    <br>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Title</th>
+      <th scope="col">Category</th>
+      <th class="col">Stock</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th>Image1</th>
+      <th>Image2</th>
+      <th>Image3</th>
+      <th>Image4</th>
+      <th>ACTIONS</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+    <tr>
+      <th scope="row">{{@index}}</th>
+      <td>{{this.name}}</td>
+      <td>{{this.category}}</td>
+      <td>{{this.stock}}</td>
+      <td>{{this.description}}</td>
+       <td>{{this.price}}</td>
+      <td><img style="width:50px ;height:50px" src="/product-images/{{this._id}}.jpg" alt=""></td>
+      <td><img style="width:50px ;height:50px" src="/product-images2/{{this._id}}.jpg" alt=""></td>
+      <td><img style="width:50px ;height:50px" src="/product-images3/{{this._id}}.jpg" alt=""></td>
+      <td><img style="width:50px ;height:50px" src="/product-images4/{{this._id}}.jpg" alt=""></td>
+      <td>
+        <a href="/products/edit-product?id={{this._id}}" class="btn btn-primary">EDIT</a>
+        <a href="/products/delete-product/{{this._id}}" class="btn btn-danger" onclick="return confirm('ARE YOU SURE TO DELETE  {{this.name}}')" >DELETE</a>
+        </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</body>

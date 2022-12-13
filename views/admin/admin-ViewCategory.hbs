@@ -1,0 +1,30 @@
+<body>
+    <br>
+   <a href="/admin/addCategories"><button  style="width:180px ;margin-left:50px" type="button" class="btn btn-primary">Add categories</button></a> 
+    <br>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">CATEGORY</th>
+      <th scope="col">SUB-CATEGORY</th>
+      <th scope="col">OPTIONS</th>
+     
+     
+    </tr>
+  </thead>
+  <tbody>
+    {{#each categories}}
+    <tr>
+      <th scope="row">{{@index}}</th>
+      <td>{{this.category}}</td>
+      <td>{{this.subCategory}}</td>
+      <td>
+        <a href="/admin/editCategories?id={{this._id}}" class="btn btn-primary">EDIT</a>
+        <a href="/admin/deleteCategory/{{this._id}}" class="btn btn-danger" onclick="return confirm('ARE YOU SURE TO DELETE  {{this.category}}')" >DELETE</a>
+        </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</body>

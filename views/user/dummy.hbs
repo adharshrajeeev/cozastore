@@ -1,0 +1,362 @@
+<body>
+  <!-- Header -->
+  <header class="header-v4">
+    <!-- Header desktop -->
+    <div class="container-menu-desktop">
+      <!-- Topbar -->
+      <div class="top-bar">
+        <div class="content-topbar flex-sb-m h-full container">
+          <div class="left-top-bar">
+            Free shipping for standard order over $100
+          </div>
+
+          <div class="right-top-bar flex-w h-full">
+            <a href="/userLogin" class="flex-c-m trans-04 p-lr-25">
+              {{#if user}}
+              {{user.name}}
+              <a href="/userProfile" class="flex-c-m trans-04 p-lr-25">
+                My Account
+              </a>
+              <a href="/userLogout" class="flex-c-m trans-04 p-lr-25">
+                LOGOUT
+              </a>
+              {{else}}
+              LOGIN
+              {{/if}}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap-menu-desktop how-shadow1">
+        <nav class="limiter-menu-desktop container">
+
+          <!-- Logo desktop -->
+          <a href="/" class="logo">
+            <img src="../../Client/images/icons/logo-01.png" alt="IMG-LOGO">
+          </a>
+
+          <!-- Menu desktop -->
+          <div class="menu-desktop">
+            <ul class="main-menu">
+              <li>
+                <a href="/">Home</a>
+                <ul class="sub-menu">
+                  <li><a href="index.html">Homepage 1</a></li>
+                  <li><a href="home-02.html">Homepage 2</a></li>
+                  <li><a href="home-03.html">Homepage 3</a></li>
+                </ul>
+              </li>
+
+              <li class="active-menu">
+                <a href="/products">Shop</a>
+              </li>
+
+              <li>
+                <a href="shoping-cart.html">Features</a>
+              </li>
+
+              <li>
+                <a href="blog.html">Blog</a>
+              </li>
+
+              <li>
+                <a href="about.html">About</a>
+              </li>
+
+              <li>
+                <a href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Icon header -->
+          <div class="wrap-icon-header flex-w flex-r-m">
+            <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+              <i class="zmdi zmdi-search"></i>
+            </div>
+            {{#if user}}
+            <a href="/cart">
+              <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart ">
+
+                <i class="zmdi zmdi-shopping-cart"><span class="cartDesign" id="cartCount">{{cartCount}}</span></i>
+              </div>
+            </a>
+            {{else}}
+            <a href="/userLogin">
+              <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+                <i class="zmdi zmdi-shopping-cart"></i>
+              </div>
+            </a>
+            {{/if}}
+
+            <a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+              <i class="zmdi zmdi-favorite-outline"></i>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Header Mobile -->
+    <div class="wrap-header-mobile">
+      <!-- Logo moblie -->
+      <div class="logo-mobile">
+        <a href="index.html"><img src="../../Client/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+      </div>
+
+      <!-- Icon header -->
+      <div class="wrap-icon-header flex-w flex-r-m m-r-15">
+        <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
+          <i class="zmdi zmdi-search"></i>
+        </div>
+
+        <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10  js-show-cart">
+          <i class="zmdi zmdi-shopping-cart"></i>
+        </div>
+
+        <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10">
+          <i class="zmdi zmdi-favorite-outline"></i>
+        </a>
+      </div>
+
+      <!-- Button show menu -->
+      <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </div>
+    </div>
+
+
+    <!-- Menu Mobile -->
+    <div class="menu-mobile">
+      <ul class="topbar-mobile">
+        <li>
+          <div class="left-top-bar">
+            Free shipping for standard order over $100
+          </div>
+        </li>
+
+        <li>
+          <div class="right-top-bar flex-w h-full">
+            {{#if user}}
+            {{user.name}}
+            <a href="/userProfile" class="flex-c-m trans-04 p-lr-25">
+              My Account
+            </a>
+            <a href="/userLogout" class="flex-c-m trans-04 p-lr-25">
+              LOGOUT
+            </a>
+            {{else}}
+            LOGIN
+            {{/if}}
+          </div>
+        </li>
+      </ul>
+
+      <ul class="main-menu-m">
+        <li>
+          <a href="index.html">Home</a>
+          <ul class="sub-menu-m">
+            <li><a href="index.html">Homepage 1</a></li>
+            <li><a href="home-02.html">Homepage 2</a></li>
+            <li><a href="home-03.html">Homepage 3</a></li>
+          </ul>
+          <span class="arrow-main-menu-m">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </span>
+        </li>
+
+        <li>
+          <a href="/products">Shop</a>
+        </li>
+
+        <li>
+          <a href="shoping-cart.html">Features</a>
+        </li>
+
+        <li>
+          <a href="blog.html">Blog</a>
+        </li>
+
+        <li>
+          <a href="about.html">About</a>
+        </li>
+
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Modal Search -->
+    <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+      <div class="container-search-header">
+        <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+          <img src="../../Client/images/icons/icon-close2.png" alt="CLOSE">
+        </button>
+
+        <form class="wrap-search-header flex-w p-l-15">
+          <button class="flex-c-m trans-04">
+            <i class="zmdi zmdi-search"></i>
+          </button>
+          <input class="plh3" type="text" name="search" placeholder="Search...">
+        </form>
+      </div>
+    </div>
+  </header>
+  <!--=====================================================H E A D E R = E N D S = H E R E =======================================================-->
+
+  <div class="container mt-5 " style="height: 100%;">
+
+    <div class="row pt-5">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+              data-whatever="@mdo">Add address</button>
+            <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog mt-5" style="color:black ;">
+                <div class="modal-content mt-5">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body  mt-5">
+                    <form id="addShippingAddress" action="/addShippingAddress1" method="post">
+
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" name="name" id="name">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Address:</label>
+                        <input type="text" class="form-control" name="address" id="address">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Postcode:</label>
+                        <input type="number" class="form-control" name="pincode" id="pincode">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">City:</label>
+                        <input type="text" class="form-control" name="city" id="city">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">State:</label>
+                        <input type="text" class="form-control" name="state" id="state">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Country:</label>
+                        <input type="text" class="form-control" name="country" id="country">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Phone:</label>
+                        <input type="tel" class="form-control" name="mobileNumber" id="phoneNumber">
+                      </div>
+
+
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary ">Add Address</button>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <form id="checkOutForm" action="">
+              <div class="accordion-body card mt-3 ">
+                {{#each address}}
+                <div class="form-check card-body ">
+                  <label class="form-check-label" for="flexRadioDefault1" data-bs-toggle="collapse"> </label>
+                  <input class="form-check-input" type="radio" name="payment-address" required value="{{this._id}}" />
+                  <span class="text-dark"><strong>Address: {{inc @index}}</strong> </span>
+                  <br><span>
+                    {{this.name}} <br>
+                    {{this.number}} <br>
+                    {{this.address}}, <br>
+                    {{this.pincode}},
+                    {{this.state}},
+                    {{this.city}}
+                  </span>
+                </div>
+                <hr>
+                {{/each}}
+
+                {{!-- <div class="form-check">
+                  <label class="form-check-label" for="flexRadioDefault1" data-bs-toggle="collapse"> </label>
+                  <input class="form-check-input" type="radio" name="payment-address" required value="" hidden /><span
+                    class="text-dark"><strong>
+                    </strong> </span> <br>
+                </div> --}}
+              </div>
+
+
+
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card pl-5">
+          <div class="card-body">
+            <input type="text" name="userId" value="{{user._id}}" hidden><br>
+            <h4 class="card-title">Total <strong><span  id="totall"> Rs.{{total}}</span></strong></h4>
+            <h5>Discount Percentage <span id="percentage" >: %</span>  </h5>
+            <br>
+            <h5>Discount Amount <span id="discount">:0</span></h5>
+            <span id="error2" value="" style="color:rgb(0, 90, 36);"></span>
+            <div class="form-check card-text pt-2">
+              <input class="form-check-input" type="radio" name="paymentMethod" value="COD" id="flexRadioDefault1"
+                checked>
+              <label class="form-check-label" for="flexRadioDefault1">
+                COD
+              </label>
+            </div>
+            <div class="form-check card-text">
+              <input class="form-check-input" type="radio" name="paymentMethod" value="RAZORPAY" id="flexRadioDefault2">
+              <label class="form-check-label" for="flexRadioDefault2">
+                RAZORPAY
+              </label>
+            </div>
+            <div class="form-check card-text">
+              <input class="form-check-input" type="radio" name="paymentMethod" value="PAYPAL" id="flexRadioDefault2">
+              <label class="form-check-label" for="flexRadioDefault2">
+                PAYPAL
+              </label>
+            </div>
+            <div class="row pt-5">
+            
+              <div class="col-md-6">
+                 <p id="error" value="" style="color:red;"></p>
+               <input class="stext-104 pr-2 size-117 bor13" type="text" id="couponName" name="couponcode" placeholder="Coupon Code">
+              </div>
+              <div class="col-md-6">
+                <div >
+								  <button class="flex-c-m stext-101 size-118 bg8 bor13 hov-btn3 trans-04 pointer " id="applyCouponBtn" onclick="applyCoupon(event)">Apply Coupon</button>
+								</div>
+                 <div >
+								  <button class="flex-c-m stext-101 size-118 bg8 bor13 hov-btn3 trans-04 pointer " id="deleteCouponBtn" onclick="removeCoupon(event)" hidden="true" >Remove Coupon</button>
+								</div>
+              </div>
+             
+            </div>
+          </div>
+         
+        </div>
+         <button type="submit " class="btn btn-secondary mt-3 btn-lg btn-block placeorder" style="background-color:rgb(24, 22, 22) ;"> Place Order</button>
+      </div>
+    </div>
+    {{!-- <div class="Place-order btn-hover text-center"> --}}
+      
+    {{!-- </div> --}}
+    </form>
+  </div>
+
+
+</body>

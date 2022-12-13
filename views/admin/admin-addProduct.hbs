@@ -1,0 +1,54 @@
+<body>
+
+    <div class="registration-form">
+        <form action="/products/admin-addProduct" method="post" enctype="multipart/form-data">
+            <h5>ADD PRODUCTS</h5>
+            <br>
+            <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" class="form-control item" id="username" name="name" placeholder="Product Name">
+            </div>
+            <div class="form-group">
+                <label for="">Category</label>
+                <select class="form-control item" class="form-control item" name="category" placeholder="Product Category">
+                    {{#each categories}}
+                    <option>{{this.category}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">Price</label>
+                <input type="number" class="form-control item" name="price" placeholder="Product Price">
+            </div>
+            <div class="form-group">
+                <label for="">Description</label>
+                <input type="text" class="form-control item" name="description" placeholder="Product Discription">
+            </div>
+            <div class="form-group">
+                <label for="">STOCK</label>
+                <input type="number" class="form-control item" name="stock" placeholder="Product Stock">
+            </div>
+            <div class="form-group">
+                <label for="">Image</label>
+                <input type="file" class="form-control item" name="image">
+            </div>
+            <div class="form-group">
+                <label for="">Image</label>
+                <input type="file" class="form-control item" name="image2">
+            </div>
+            <div class="form-group">
+                <label for="">Image</label>
+                <input type="file" class="form-control item" name="image3">
+            </div>
+            <div class="form-group">
+                <label for="">Image</label>
+                <input type="file" class="form-control item" name="image4">
+            </div>
+            <div class="form-group text-center ">
+                <button type="submit" class="btn btn-block  create-account">SAVE</button>
+            </div>
+        </form>
+
+    </div>
+
+</body>

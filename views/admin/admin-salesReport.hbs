@@ -1,0 +1,185 @@
+<body>
+  <br>
+  <ul class="nav nav-pills " id="pills-tab" role="tablist" style="margin-left: 10px;">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active " id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+        type="button" role="tab" aria-controls="pills-home" aria-selected="true">DAILY</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+        type="button" role="tab" aria-controls="pills-profile" aria-selected="false">MONTHLY</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
+        type="button" role="tab" aria-controls="pills-contact" aria-selected="false">YEARLY</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <form action="/admin/admin-dailysales" method="post">
+        <div class="row pt-3">
+          <div class="col-md-6">
+            <label for="">From Date</label>
+            <input type="date" name="day">
+            <label for="">To Date</label>
+            <input type="date" name="toDay" id="">
+            <button class="btn-primary ">view</button>
+          </div>
+          <div class="col-md-6">
+          </div>
+        </div>
+      </form>
+      <table id="example" class="table ">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Total Sales Amount</th>
+            <th scope="col">Total No of Orders</th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+          {{#each dailySales}}
+          <tr>
+            <td>{{inc @index}}</td>
+            <td>{{this._id}}</td>
+            <td>{{this.totalAmount}}</td>
+            <td>{{this.Quantity}}</td>
+
+          </tr>
+          {{/each}}
+          <br>
+        </tbody>
+      
+      </table>
+    </div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <form action="/admin/admin-monthlySales" method="post">
+        <div class="row pt-3">
+          <div class="col-md-6">
+            <select name="month" id="cars">
+              <option value="01">January</option>
+              <option value="02">Feb</option>
+              <option value="03">Mar</option>
+              <option value="04">Apr</option>
+              <option value="05">May</option>
+              <option value="06">Jun</option>
+              <option value="07">Jul</option>
+              <option value="08">Aug</option>
+              <option value="09">Sep</option>
+              <option value="10">Oct</option>
+              <option value="11">Nov</option>
+              <option value="12">Dec</option>
+            </select>
+            <select name="year" id="cars">
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+              <option value="2018">2018</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+              <option value="2014">2014</option>
+              <option value="2013">2013</option>
+              <option value="2012">2012</option>
+              <option value="2011">2011</option>
+            </select>
+            <button class="btn-primary">view</button>
+          </div>
+          
+          <div class="col-md-6">
+            
+          </div>
+         
+        </div>
+      </form>
+      <table id="example2" class="table ">
+        <thead>
+
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Total Sales Amount</th>
+            <th scope="col">Total No of Orders</th>
+
+
+          </tr>
+
+        </thead>
+        <tbody>
+          {{#each monthlySales}}
+          <tr>
+            <td>{{inc @index}}</td>
+            <td>{{this._id}}</td>
+            <td>{{this.totalAmount}}</td>
+            <td>{{this.Quantity}}</td>
+
+          </tr>
+          {{/each}}
+          <br>
+        </tbody>
+       
+      </table>
+    </div>
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+      <form action="/admin/admin-yearlySales" method="post">
+        <div class="row pt-3">
+        
+          <div class="col-md-6">
+            <select name="year" id="cars">
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+              <option value="2018">2018</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+              <option value="2014">2014</option>
+              <option value="2013">2013</option>
+              <option value="2012">2012</option>
+              <option value="2011">2011</option>
+            </select>
+            <button class="btn-primary">view</button>
+          </div>
+          <div class="col-md-6">
+            
+          </div>
+        </div>
+      </form>
+      <table id="example3" class="table ">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Total Sales Amount</th>
+            <th scope="col">Total No of Orders</th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+          {{#each yearlySales}}
+          <tr>
+            <td>{{inc @index}}</td>
+            <td>{{this._id}}</td>
+            <td>{{this.totalAmount}}</td>
+            <td>{{this.Quantity}}</td>
+
+          </tr>
+          {{/each}}
+          <br>
+        </tbody>
+        
+      </table>
+    </div>
+  </div>
+
+  <script>
+   
+  </script>
+
+</body>

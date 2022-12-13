@@ -1,0 +1,88 @@
+<body>
+  <br>
+  <ul class="nav nav-pills " id="pills-tab" role="tablist" style="margin-left: 10px;">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active " id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+        type="button" role="tab" aria-controls="pills-home" aria-selected="true">View Offers</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+        type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Add Offers</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      
+      <table id="" class="table ">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Category Name</th>
+            <th scope="col">Offer Percentage</th>
+            <th scope="col">Expiry Date</th>
+             <th scope="col">Actions</th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+          {{#each offersList}}
+          <tr>
+            <td>{{inc @index}}</td>
+            <td>{{this.category}}</td>
+            <td>{{this.offer}}%</td>
+            <td>{{this.ExpiryDate}}</td>
+            <td>
+                 <a href="/admin/edit-banner?id={{this._id}}" class="btn btn-primary">EDIT</a>
+                 <a href="/admin/delete-banner/{{this._id}}" class="btn btn-danger" onclick="return confirm('ARE YOU SURE TO DELETE  {{this.name}}')" >DELETE</a>
+            </td>
+
+          </tr>
+          {{/each}}
+          <br>
+        </tbody>
+      
+      </table>
+    </div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      
+      <div class="registration-form">
+        <form action="/admin/admin-addCategoryOffer" method="post" >
+           
+          
+            <div class="form-group">
+                <label for="">Offer Name</label>
+                <input type="text" class="form-control item" id="offerName" name="offerName" placeholder="Offer Name">
+            </div>
+           
+          <div class="form-group">
+                 <select class="form-control item" class="form-control item" name="category" placeholder=" Category">
+                    {{#each categories}}
+                    <option >{{this.category}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            
+              <div class="form-group">
+                <label for="">Expiry Date</label>
+                <input type="date" class="form-control item" name="expDate" placeholder="Coupon Expiry Date">
+            </div>
+             <div class="form-group">
+                <label for="">Offer Percentage </label>
+                <input type="percentage" class="form-control item" name="offerPercentage" placeholder="Offer Percentage">
+            </div>
+            <div class="form-group text-center ">
+                <button type="submit" class="btn btn-block  create-account">SAVE</button>
+            </div>
+        </form>
+
+    </div>
+    </div>
+  
+  </div>
+
+  <script>
+   
+  </script>
+
+</body>

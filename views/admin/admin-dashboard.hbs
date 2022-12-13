@@ -1,0 +1,453 @@
+<body>
+  <!-- Content wrapper -->
+  <div class="content-wrapper">
+    <!-- Content -->
+
+    <div class="container-xxl flex-grow-1 container-p-y">
+      <div class="row">
+        <div class="col-lg-8 mb-4 order-0">
+          <div class="card">
+            <div class="d-flex align-items-end row">
+              <div class="col-sm-7">
+                <div class="card-body">
+                  <h5 class="card-title text-primary">Good Moorning Admin 🎉</h5>
+                  <p class="mb-4">
+                    You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in
+                    your profile.
+                  </p>
+
+                  {{!-- <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Badges</a> --}}
+                </div>
+              </div>
+              <div class="col-sm-5 text-center text-sm-left">
+                <div class="card-body pb-0 px-0 px-md-4">
+                  <img src="../assets/img/illustrations/man-with-laptop-light.png" height="140" alt="View Badge User"
+                    data-app-dark-img="illustrations/man-with-laptop-dark.png"
+                    data-app-light-img="illustrations/man-with-laptop-light.png" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 order-1">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 col-6 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title d-flex align-items-start justify-content-between">
+                    <div class="avatar flex-shrink-0">
+                      <img src="../assets/img/icons/unicons/chart-success.png" alt="chart success" class="rounded" />
+                    </div>
+                    <div class="dropdown">
+                      {{!-- <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="bx bx-dots-vertical-rounded"></i>
+                      </button> --}}
+                      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
+                        <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="fw-semibold d-block mb-1">Total Active Users</span>
+                  <h3 class="card-title mb-2">Nos: {{TotalUsers}}</h3>
+                  {{!-- <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> --}}
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-6 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title d-flex align-items-start justify-content-between">
+                    <div class="avatar flex-shrink-0">
+                      <img src="../assets/img/icons/unicons/wallet-info.png" alt="Credit Card" class="rounded" />
+                    </div>
+                    <div class="dropdown">
+                      <button class="btn p-0" type="button" id="cardOpt6" data-bs-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="bx bx-dots-vertical-rounded"></i>
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
+                        <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                  <span>Sales</span>
+                  <h3 class="card-title text-nowrap mb-1">RS: {{salesData}}</h3>
+                  <small class="text-success fw-semibold"></small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Total Revenue -->
+        <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
+          <div class="card">
+            <div class="row row-bordered g-0">
+              <div class="col-md-12">
+                <div class="card-title">
+                </div>
+                <a href="/admin/salesReport"><h5 class="card-header m-0 me-2 pb-3">DAILY SALES</h5></a>
+                
+                <div class="row">
+                  <div class="col-md-4">
+
+                  </div>
+                  <div class="col-md-4">
+                    
+                  </div>
+                </div>
+                <div class="px-2">
+                  <div>
+                   <canvas id="totalSales"></canvas>
+                   
+                  </div>
+
+                </div>
+              </div>
+              {{!-- <div class="col-md-4">
+                <div class="card-body">
+                  <div class="text-center">
+                    <div class="dropdown">
+                      <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="growthReportId"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        2022
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId">
+                        <a class="dropdown-item" href="javascript:void(0);">2021</a>
+                        <a class="dropdown-item" href="javascript:void(0);">2020</a>
+                        <a class="dropdown-item" href="javascript:void(0);">2019</a>
+                      </div>
+                    </div>
+                  </div>
+                </div> --}}
+                {{!-- <div id="growthChart"></div> --}}
+                {{!-- <div>
+                 <canvas id="totalCategory"></canvas>
+                 </div> --}}
+                {{!-- <div class="text-center fw-semibold pt-3 mb-2">Category Wise Sales</div>
+
+                <div class="d-flex px-xxl-4 px-lg-2 p-4 gap-xxl-3 gap-lg-1 gap-3 justify-content-between">
+                  <div class="d-flex">
+                   
+                  </div>
+                  <div class="d-flex">
+                
+                  
+                  </div>
+                </div> --}}
+              {{!-- </div> --}}
+            </div>
+          </div>
+        </div>
+        <!--/ Total Revenue -->
+        <div class="col-12 col-md-8 col-lg-4 order-3 order-md-2">
+          <div class="row">
+            <div class="col-6 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title d-flex align-items-start justify-content-between">
+                    <div class="avatar flex-shrink-0">
+                      <img src="../assets/img/icons/unicons/paypal.png" alt="Credit Card" class="rounded" />
+                    </div>
+                    <div class="dropdown">
+                      <button class="btn p-0" type="button" id="cardOpt4" data-bs-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="bx bx-dots-vertical-rounded"></i>
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
+                        <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="d-block mb-1">Total Orders</span>
+                  <h3 class="card-title text-nowrap mb-2">Nos: {{totalOrders}}</h3>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-6 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title d-flex align-items-start justify-content-between">
+                    <div class="avatar flex-shrink-0">
+                      <img src="../assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
+                    </div>
+                    <div class="dropdown">
+                      <button class="btn p-0" type="button" id="cardOpt1" data-bs-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="bx bx-dots-vertical-rounded"></i>
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="cardOpt1">
+                        <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="fw-semibold d-block mb-1">Total Products</span>
+                  <h3 class="card-title mb-2">Nos:{{totalProducts}}</h3>
+                  
+                </div>
+              </div>
+            </div>
+            <!-- </div>
+    <div class="row"> -->
+            <div class="col-12 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
+                    <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
+                      <div class="card-title">
+                        <h5 class="text-nowrap mb-2">Profit Report</h5>
+                        <span class="badge bg-label-warning rounded-pill">Year 2022</span>
+                      </div>
+                       <div class="container">
+                         <h3 class="  mb-1">RS: {{profit}}</h3>
+                        </div>
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Order Statistics -->
+        <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
+          <div class="card h-100">
+            <div class="card-header d-flex align-items-center justify-content-between pb-0">
+              <div class="card-title mb-0">
+                <a href=""></a> <h5 class="m-0 me-2">MONTHLY SALES</h5>
+              </div>
+              <div class="dropdown">
+                <button class="btn p-0" type="button" id="orederStatistics" data-bs-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <i class="bx bx-dots-vertical-rounded"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orederStatistics">
+                  <a class="dropdown-item" href="javascript:void(0);">Select All</a>
+                  <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
+                  <a class="dropdown-item" href="javascript:void(0);">Share</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+             
+            
+                    <canvas id="totalSales2"></canvas>
+                 
+            </div>
+          </div>
+        </div>
+        <!--/ Order Statistics -->
+
+        <!-- Expense Overview -->
+        <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
+          <div class="card h-100">
+            <div class="card-header d-flex align-items-center justify-content-between pb-0">
+              <div class="card-title mb-0">
+                <h5 class="m-0 me-2">YEARLY SALE</h5>
+              </div>
+              <div class="dropdown">
+                <button class="btn p-0" type="button" id="orederStatistics" data-bs-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <i class="bx bx-dots-vertical-rounded"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orederStatistics">
+                  <a class="dropdown-item" href="javascript:void(0);">Select All</a>
+                  <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
+                  <a class="dropdown-item" href="javascript:void(0);">Share</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+            
+                    <canvas id="totalSales3"></canvas>
+                 
+            </div>
+          </div>
+        </div>
+        <!--/ Expense Overview -->
+
+        <!-- Transactions -->
+        <div class="col-md-6 col-lg-4 order-2 mb-4">
+          <div class="card h-100">
+            <div class="card-header d-flex align-items-center justify-content-between">
+              <h5 class="card-title ">Transactions</h5>
+             
+            </div>
+            <div class="card-body">
+              
+               
+                  <div  style=" width:280px;margin-left:18px" >
+                  <canvas  id="paymentMode"></canvas>
+                  </div>
+                
+             
+            </div>
+          </div>
+        </div>
+        <!--/ Transactions -->
+      </div>
+    </div>
+    <!-- / Content -->
+
+
+    <div class="content-backdrop fade"></div>
+  </div>
+  <!-- Content wrapper -->
+  </div>
+  <!-- / Layout page -->
+  </div>
+
+  <!-- Overlay -->
+
+  </div>
+
+
+  <script>
+    
+//-------------------------------------DAILY SALES DATA----------------------------------------
+
+
+     const label1 = [
+  {{#each daily}}'{{_id}}',{{/each}}
+   
+
+  ];
+
+  const data1 = {
+    labels: label1,
+    datasets: [{
+      label: 'Sales Report',
+      backgroundColor: '#409456'
+      ,
+      borderColor: '#409456',
+
+
+      data: [{{#each daily}} {{totalAmount}},{{/each}}]
+    }]
+  };
+
+  const config1 = {
+    type: 'line',
+    data: data1,
+    options: {}
+  };
+
+
+  const myChart1 = new Chart(
+    document.getElementById('totalSales'),
+    config1
+  );
+   
+
+  </script>
+  <script>
+   
+        //--------------------------MONTH WISE SALES DATA---------------------------------------
+
+    console.log("this is monthly data")
+     const label2 = [
+      {{#each monthly}}'{{_id}}',{{/each}}
+    ];
+
+  const data2 = {
+    labels: label2,
+    datasets: [{
+      label: 'Sales Report',
+      backgroundColor: '#409456'
+      ,
+      borderColor: '#409456',
+
+
+      data: [{{#each monthly}} {{totalAmount}},{{/each}}]
+    }]
+  };
+
+  const config2 = {
+    type: 'line',
+    data: data2,
+    options: {}
+  };
+
+
+  const myChart2 = new Chart(
+    document.getElementById('totalSales2'),config2 );
+   
+  
+
+  </script>
+
+   
+<script>
+
+  //----------------YEARLY SALES GRAPGH------------------------\
+
+    const label3 = [
+      {{#each yearly}}'{{_id}}',{{/each}}
+    ];
+
+  const data3 = {
+    labels: label3,
+    datasets: [{
+      label: 'Sales Report',
+      backgroundColor: '#409456'
+      ,
+      borderColor: '#409456',
+
+
+      data: [{{#each yearly}} {{totalAmount}},{{/each}}]
+    }]
+  };
+
+  const config3 = {
+    type: 'line',
+    data: data3,
+    options: {}
+  };
+
+
+  const myChart3 = new Chart(
+    document.getElementById('totalSales3'),
+    config3
+  );
+   
+     
+  
+  </script>
+
+
+
+  <script>
+    //------------------------PAYMENTMODE WISE DONUT CART---------------------
+
+      const donut = document.getElementById('paymentMode').getContext('2d');
+      const categoryData=[{{#each paymentmode}} {{count}} ,{{/each}}]
+       
+       categoryLabels=[{{#each paymentmode}} '{{_id}}' ,{{/each}}]
+        
+       
+      const myChart11=new Chart(donut,{
+        type: 'doughnut',
+    	data: {
+	  	labels: categoryLabels,
+	  	datasets: [
+			{
+				label: 'Payment Methods',
+				data: categoryData,
+			},
+		],
+	},
+      })
+
+  </script>
+
+
+
+
+</body>

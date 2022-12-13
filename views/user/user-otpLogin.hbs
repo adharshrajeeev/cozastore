@@ -1,0 +1,62 @@
+<style>
+  /* CSS */
+  .button-36 {
+    background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-family: "Inter UI", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    height: 3rem;
+    padding: 0 1.6rem;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+    transition: all .5s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+
+  .button-36:hover {
+    box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+    transition-duration: .1s;
+  }
+
+  @media (min-width: 768px) {
+    .button-36 {
+      padding: 0 2.6rem;
+    }
+  }
+</style>
+<div class="main">
+  <!-- Sign up form -->
+  <section class="signup">
+    <div class="container">
+      <div class="signup-content">
+        <div class="signup-form">
+          <h2 class="form-title">USER OTP LOGIN</h2>
+          <form action="/otp" method="post" class="register-form" id="register-form">
+             <div class="form-group">
+            <label for="phone"><i class="zmdi zmdi-account material-icons-name"></i></label>
+            <input id="contact-number" type="tel" value="" name="phone" placeholder="Phone Number" onkeyup="validatePhoneNumber()" required/>
+            <span id="number-error" style="color: red;"></span>
+            </div>
+    
+            <button type="submit"  id="contact-submit"  onclick="return validateForm()" class="button-36">Get OTP</button>
+            <div id="submit-error" style="color: red;"></div>
+          </form>
+        </div>
+        <div class="signup-image">
+          <figure><img src="../Admin/adminlogin/images/signup-image.jpg" alt="sing up image"></figure>
+          <a href="/userLogin">I am already member</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+

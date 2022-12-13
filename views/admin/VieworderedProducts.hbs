@@ -1,0 +1,79 @@
+
+<body >
+    <br>
+  
+    <br>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Image</th>
+      <th scope="col">Product Name</th>
+      <th class="col">Quantity</th>
+      <th scope="col">Price</th>
+      <th class="col">Status</th>
+      <th class="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+    <tr>
+      <th scope="row">{{inc @index}}</th>
+      <td>  <img style="height:30px;" src="/product-images/{{this.product._id}}.jpg" alt="IMG"></td>
+      <td>{{this.product.name}}</td>
+      <td>{{this.quantity}}</td>
+      <th>{{this.product.price}}</th>
+       <td>{{this.status}}</td>
+      
+      <td>
+         <select  onchange="deliveryStatusUpdate(value,'{{this._id}}','{{this.item}}')">
+                <option value="{{this.status}}" selected>
+                    {{this.status}}
+                  </option
+                 {{#ifEquals this.status 'Placed'}}
+                    <option value="Shipped">Shipped</option>
+                    <option value="Delivered">Delivered</option>
+                    <option value="Cancelled">Cancelled</option>
+                     <option value="Shipped">Shipped</option>
+                 {{/ifEquals}}
+                 {{#ifEquals this.status 'Delivered'}}
+                 {{/ifEquals}}
+                  {{#ifEquals this.status 'Cancelled'}}
+                 {{/ifEquals}}
+                 {{#ifEquals this.status 'Shipped'}}
+                   <option value="Delivered">Delivered</option>
+                   <option value="Cancelled">Cancelled</option>
+                   <option value="Delivered">Delivered</option>
+                 {{/ifEquals}}
+
+                </select>
+
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+ 
+<script type="text/javascript">
+    
+function deliveryStatusUpdate(value,orderId,productId){
+  console.log(value)
+   console.log(orderId);
+  console.log(productId)
+   $.ajax({
+          url: '/admin/orderedProductStatus',
+          method: 'post',
+          data:{
+               status:value,
+               orderId: orderId,
+               productId: productId
+          },
+           success:(response)=>{
+              alert("YES STATUS UPDATED")
+              location.reload();
+           }
+       })
+}
+</script>
+
+</body>

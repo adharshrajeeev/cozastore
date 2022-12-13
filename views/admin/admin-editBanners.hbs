@@ -1,0 +1,31 @@
+ 
+<body>
+    <div class="registration-form">
+       <form action="/admin/postEditBanner/{{bannerDetails._id}}" method="post" enctype="multipart/form-data">
+           <h5>ADMIN EDIT PRODUCTS</h5>
+           <br>
+            <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" class="form-control item" id="username" name="name" placeholder="Product Name" value="{{bannerDetails.name}}" >
+            </div>
+               <div class="form-group">
+                <label for="">Title</label>
+                <input type="text" class="form-control item" id="username" name="title" placeholder="Banner title" required>
+            </div>
+            <div class="form-group">
+                <label for="">Image1</label>
+                <img src="/banner-images/{{bannerDetails._id}}.jpg" alt="" style="width:50px;height:50px;padding-bottom:10px" id="imgView"  >
+                <input type="file" class="form-control" name="image" onchange="viewImage(event)"  >
+            </div>
+            <div class="form-group text-center ">
+                <button type="submit" class="btn btn-block  create-account">SAVE</button>
+            </div>
+        </form>
+      
+    </div>
+    <script>
+        function viewImage(event){
+            document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+        }
+    </script>
+</body>

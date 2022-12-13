@@ -1,0 +1,58 @@
+ 
+<body>
+    <div class="registration-form">
+       <form action="/products/admin-editProduct/{{product._id}}" method="post" enctype="multipart/form-data">
+           <h5>ADMIN EDIT PRODUCTS</h5>
+           <br>
+            <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" class="form-control item" id="username" name="name" placeholder="Product Name" value="{{product.name}}" >
+            </div>
+              <div class="form-group">
+                <label for="">Category</label>
+                <input type="text" class="form-control item"  name="category" placeholder="Product Category"value="{{product.category}}" >
+            </div>
+            <div class="form-group">
+                <label for="">Price</label>
+                <input type="number" class="form-control item"  name="price" placeholder="Product Price"value="{{product.price}}" >
+            </div>
+             <div class="form-group">
+                <label for="">STOCK</label>
+                <input type="number" class="form-control item" name="stock" placeholder="Product Stock" value="{{product.stock}}">
+            </div>
+             <div class="form-group">
+                <label for="">Description</label>
+                <input type="text" class="form-control item"  name="description" placeholder="Product Discription"value="{{product.description}}" >
+            </div>
+            <div class="form-group">
+                <label for="">Image1</label>
+                <img src="/product-images/{{product._id}}.jpg" alt="" style="width:50px;height:50px;padding-bottom:10px" id="imgView"  >
+                <input type="file" class="form-control" name="image" onchange="viewImage(event)"  >
+            </div>
+            <div class="form-group">
+                <label for="">Image2</label>
+                <img src="/product-images2/{{product._id}}.jpg" alt="" style="width:50px;height:50px;padding-bottom:10px" >
+                <input type="file" class="form-control" name="image2"   >
+            </div>
+            <div class="form-group">
+                <label for="">Image3</label>
+                <img src="/product-images3/{{product._id}}.jpg" alt="" style="width:50px;height:50px;padding-bottom:10px" >
+                <input type="file" class="form-control" name="image3"   >
+            </div>
+            <div class="form-group">
+                <label for="">Image4</label>
+                <img src="/product-images4/{{product._id}}.jpg" alt="" style="width:50px;height:50px;padding-bottom:10px" >
+                <input type="file" class="form-control" name="image4"   >
+            </div>
+            <div class="form-group text-center ">
+                <button type="submit" class="btn btn-block  create-account">SAVE</button>
+            </div>
+        </form>
+      
+    </div>
+    <script>
+        function viewImage(event){
+            document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+        }
+    </script>
+</body>

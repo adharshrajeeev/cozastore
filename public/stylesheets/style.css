@@ -1,0 +1,221 @@
+/*PRODUCT ADDING DETAILS CSS*/
+
+.registration-form {
+    padding: 50px 0;
+}
+
+.registration-form form {
+
+    background-color: #fff;
+    max-width: 600px;
+    margin: auto;
+    padding: 50px 70px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.registration-form .form-icon {
+    text-align: center;
+    background-color: #5891ff;
+    border-radius: 50%;
+    font-size: 40px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    margin-bottom: 50px;
+    line-height: 100px;
+}
+
+.registration-form .item {
+    border-radius: 20px;
+    margin-bottom: 25px;
+    padding: 10px 20px;
+}
+
+.registration-form .create-account {
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #5791ff;
+    border: none;
+    color: white;
+    margin-top: 20px;
+}
+
+.registration-form .social-media {
+    max-width: 600px;
+    background-color: #fff;
+    margin: auto;
+    padding: 35px 0;
+    text-align: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    color: #9fadca;
+    border-top: 1px solid #dee9ff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.registration-form .social-icons {
+    margin-top: 30px;
+    margin-bottom: 16px;
+}
+
+.registration-form .social-icons a {
+    font-size: 23px;
+    margin: 0 3px;
+    color: #5691ff;
+    border: 1px solid;
+    border-radius: 50%;
+    width: 45px;
+    display: inline-block;
+    height: 45px;
+    text-align: center;
+    background-color: #fff;
+    line-height: 45px;
+}
+
+.registration-form .social-icons a:hover {
+    text-decoration: none;
+    opacity: 0.6;
+}
+
+@media (max-width: 576px) {
+    .registration-form form {
+        padding: 50px 20px;
+    }
+
+    .registration-form .form-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 30px;
+        line-height: 70px;
+    }
+}
+
+/*PRODUCT ADDING DETAILS CSSS FILES*/
+
+
+/*-----------------------ORDER SUCESS PAGE CSS DESIGN-------------------------------------------*/
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #da9376;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgb(249, 146, 63), rgb(225, 111, 72));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(161, 196, 253, 1), rgb(222, 101, 101))
+    }
+    
+    #progressbar-1 {
+    color: #455A64;
+    }
+    
+    #progressbar-1 li {
+    list-style-type: none;
+    font-size: 13px;
+    width: 33.33%;
+    float: left;
+    position: relative;
+    }
+    
+    #progressbar-1 #step1:before {
+    content: "1";
+    color: #fff;
+    width: 29px;
+    margin-left: 22px;
+    padding-left: 11px;
+    }
+    
+    #progressbar-1 #step2:before {
+    content: "2";
+    color: #fff;
+    width: 29px;
+    }
+    
+    #progressbar-1 #step3:before {
+    content: "3";
+    color: #fff;
+    width: 29px;
+    margin-right: 22px;
+    text-align: center;
+    }
+    
+    #progressbar-1 li:before {
+    line-height: 29px;
+    display: block;
+    font-size: 12px;
+    background: #455A64;
+    border-radius: 50%;
+    margin: auto;
+    }
+    
+    #progressbar-1 li:after {
+    content: '';
+    width: 121%;
+    height: 2px;
+    background: #455A64;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 15px;
+    z-index: -1;
+    }
+    
+    #progressbar-1 li:nth-child(2):after {
+    left: 50%
+    }
+    
+    #progressbar-1 li:nth-child(1):after {
+    left: 25%;
+    width: 121%
+    }
+    
+    #progressbar-1 li:nth-child(3):after {
+    left: 25%;
+    width: 50%;
+    }
+    
+    #progressbar-1 li.active:before,
+    #progressbar-1 li.active:after {
+    background: #1266f1;
+    }
+    
+    .card-stepper {
+    z-index: 0
+    }
+
+
+
+
+    .placeorder{
+        
+        display: inline-block;
+        outline: 0;
+        border: 0;
+        font-size: 20px;
+        font-weight: 500;
+        color: #fff;
+        cursor: pointer;
+        background-image: linear-gradient(to right,#e052a0,#f15c41)!important;
+        border-radius: 3px;
+        padding: 16px 18px 15px;
+        white-space: nowrap;
+
+      
+        
+    }
+
+    .placeorder  :hover {
+        background-color: #e6375a;
+        background-image: none!important;
+    }
+
+
+    /*-*/
+   

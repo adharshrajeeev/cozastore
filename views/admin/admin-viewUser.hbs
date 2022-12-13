@@ -1,0 +1,36 @@
+<body>
+   
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">USER NAME</th>
+      <th scope="col">EMAIL</th>
+      <th scope="col">STATUS</th>
+      <th scope="col">ACTION</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    {{#each users}}
+    <tr>
+      <th scope="row">{{@index}}</th>
+      <td>{{this.name}}</td>
+      <td>{{this.email}}</td>
+      <td> {{#if isblocked}}
+            <span  class="btn btn-danger btn-sm">DEACTIVE</span>
+          {{else}}
+           <span style="background-color:rgb(7, 129, 7) ; color:white" class="btn  btn-sm">ACTIVE</span>
+         {{/if}}</td>
+      <td>
+        {{#if isblocked}}
+         <a href="/admin/unBlockUser?id={{this._id}}" class="btn btn-success">UNBLOCK</a>
+          {{else}}
+        <a href="/admin/blockUser?id={{this._id}}" class="btn btn-danger" onclick="return confirm('ARE YOU SURE TO BLOCK : {{this.name}}')">BLOCK</a>
+         {{/if}}
+         </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</body>
