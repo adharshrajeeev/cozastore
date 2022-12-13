@@ -3,7 +3,8 @@ var adminHelper=require('../helpers/admin-helpers')
 
 const user = require('./user');
 const collections = require('../config/collections');
-const moment=require('moment')
+const moment=require('moment');
+const { response } = require('express');
 const adminId="admin@gmail.com";
 const passwordId="1234"
 
@@ -426,6 +427,43 @@ deleteCategory:(req,res)=>{
       console.log(error)
       res.render('404',{layout:null})
    })
+ },
+
+
+ /*----------------------------------------------------------------- --*/
+ /*             ADMIN DELTE COUPON                                    */
+ /*-------------------------------------------------------------------*/
+
+
+
+ admindeleteCoupon:(req,res)=>{
+   let couponId=req.params.id;
+   adminHelper.deleteCoupon(couponId).then((response)=>{
+      res.redirect('/admin/viewCoupons');
+   })
+ },
+
+
+
+ /*----------------------------------------------------------------- --*/
+ /*            ADMIN GET EDIT COUPON PAGE                             */
+ /*-------------------------------------------------------------------*/
+
+
+ getEditCouponPage:async(req,res)=>{
+
+   let coupons=await adminHelper.getCouponDetails(req.query.id);
+
+    res.render('admin/admin-editCoupon',{layout:'admin-layout',coupons})
+ },
+
+ updateCoupon:async(req,res)=>{
+  
+   adminHelper.updateCouponIn(req.params.id,req.body).then(()=>{
+      res.redirect('/admin/viewCoupons');
+   })
  }
+
+ 
 
 }    

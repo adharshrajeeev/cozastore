@@ -13,7 +13,7 @@
       <th scope="col">Min Purchase Amount</th>
       <th scope="col">Max Discount Amount</th>
       <th scope="col">Status</th>
-      <th scope="col">Action</th>3
+    
      
     </tr>
   </thead>
@@ -30,11 +30,10 @@
       <td>{{this.maxdiscount}}</td>
      
       <td>
-        {{#if isblocked}}
-         <a href="/admin/unBlockUser?id={{this._id}}" class="btn btn-success">UNBLOCK</a>
-          {{else}}
-        <a href="/admin/blockUser?id={{this._id}}" class="btn btn-danger" onclick="return confirm('ARE YOU SURE TO BLOCK : {{this.name}}')">BLOCK</a>
-         {{/if}}
+  
+          <a href="/admin/editCoupon?id={{this._id}}" class="btn btn-primary">EDIT</a>
+        <a href="/admin/deleteCoupon/{{this._id}}" class="btn btn-danger" onclick="return confirm('ARE YOU TO DELTE')">DELETE</a>
+      
          </td>
 
     </tr>

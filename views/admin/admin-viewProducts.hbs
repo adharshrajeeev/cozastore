@@ -2,7 +2,7 @@
     <br>
    <a href="/products/admin-addProduct"><button  style="width:140px ;margin-left:50px" type="button" class="btn btn-primary">Add Products</button></a> 
     <br>
-    <table class="table">
+    <table class="table" id="userTable">
   <thead>
     <tr>
       <th scope="col">No</th>
@@ -21,7 +21,7 @@
   <tbody>
     {{#each products}}
     <tr>
-      <th scope="row">{{@index}}</th>
+      <th scope="row">{{inc @index}}</th>
       <td>{{this.name}}</td>
       <td>{{this.category}}</td>
       <td>{{this.stock}}</td>

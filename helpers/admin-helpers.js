@@ -1,6 +1,7 @@
 var db=require('../config/connection');
 var collection=require('../config/collections');
 const bcrypt=require('bcrypt');
+const { response } = require('express');
 
 var ObjectId=require('mongodb').ObjectId
 
@@ -741,6 +742,57 @@ module.exports={
     })
 
     
+  },
+
+
+  
+  /* -------------------------------------------------------------------------- */
+  /*                    DELETE COUPON                                            */
+  /* -------------------------------------------------------------------------- */
+
+
+  deleteCoupon:(couponId)=>{
+    return new Promise(async(resolve,reject)=>{
+      db.get().collection(collection.COUPON_COLLECTION).deleteOne({_id:ObjectId(couponId)}).then((response)=>{
+        resolve(response)
+      })
+    })
+  },
+
+
+   /* -------------------------------------------------------------------------- */
+  /*                   GET COUPON DETAILS                                       */
+  /* -------------------------------------------------------------------------- */
+
+  getCouponDetails:(couponId)=>{
+    return new Promise(async(resolve,reject)=>{
+      let couponDetails=await db.get().collection(collection.COUPON_COLLECTION).findOne({_id:ObjectId(couponId)})
+      resolve(couponDetails)
+    })
+  },
+
+  
+   /* -------------------------------------------------------------------------- */
+  /*                  UPDATE COUPONS In                                       */
+  /* -------------------------------------------------------------------------- */
+
+
+
+  updateCouponIn:(couponId,data)=>{
+    return new Promise((resolve,reject)=>{
+      db.get().collection(collection.COUPON_COLLECTION).updateOne({_id:ObjectId(couponId)},{
+      $set:{
+          couponName:data.couponName,
+        couponId:data.couponId,
+        maxdiscount:data.maxdiscount,
+        minAmount:data.minAmount,
+        expDate:data.expDate,
+        couponPercentage:data.couponPercentage
+      }
+      }).then((response)=>{
+        resolve();
+      })
+    })
   }
 
 

@@ -356,14 +356,14 @@ postconfirmOTP:(req,res)=>{
                     },
                     "redirect_urls": {
                         "return_url": "http://localhost:3000/orderSucess",
-                        "cancel_url": "http://localhost:3000"
+                        "cancel_url": "http://localhost:3000/paymentError"
                     },
                     "transactions": [{
                         "amount": {
                             "currency": "USD",
                             "total": totalPrice
                         },
-                        "description": orderId
+                        "description": "this is order"
                     }]
                 };
     
@@ -406,14 +406,14 @@ postconfirmOTP:(req,res)=>{
                     },
                     "redirect_urls": {
                         "return_url": "http://localhost:3000/orderSucess",
-                        "cancel_url": "http://localhost:3000"
+                        "cancel_url": "http://localhost:3000/paymentError"
                     },
                     "transactions": [{
                         "amount": {
                             "currency": "USD",
                             "total": totalPrice
                         },
-                        "description": orderId
+                        "description": "this is order"
                     }]
                 };
     
@@ -726,6 +726,13 @@ postSearchProducts:async(req,res)=>{
   
    
     
+},
+
+
+
+
+paypalPaymentError:(req,res)=>{
+    res.render('404',{layout:null})
 }
 
 

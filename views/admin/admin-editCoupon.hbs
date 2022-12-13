@@ -1,0 +1,39 @@
+<body>
+
+    <div class="registration-form">
+        <form action="/admin/admin-updateCoupon/{{coupons._id}}" method="post" >
+            <h5>ADD Coupons</h5>
+          
+            <div class="form-group">
+                <label for="">Coupon Name</label>
+                <input type="text" class="form-control item" id="couponName" value="{{coupons.couponName}}" name="couponName" placeholder="Coupon Name">
+            </div>
+           
+          <div class="form-group">
+                <label for="">Coupon Id</label>
+                <input type="text" class="form-control item" id="couponId" value="{{coupons.couponId}}" name="couponId" placeholder="Coupon-Id">
+            </div>
+            <div class="form-group">
+                <label for="">Max Discount</label>
+                <input type="number" class="form-control item" name="maxdiscount" value="{{coupons.maxdiscount}}" placeholder="Coupon Max Amount">
+            </div>
+             <div class="form-group">
+                <label for="">Min Purchase Amount</label>
+                <input type="number" class="form-control item" name="minAmount" value="{{coupons.minAmount}}" placeholder="Coupon Min Amount">
+            </div>
+              <div class="form-group">
+                <label for="">Expiry Date</label>
+                <input type="date" class="form-control item" name="expDate" value="{{coupons.expDate}}"  placeholder="Coupon Expiry Date">
+            </div>
+             <div class="form-group">
+                <label for="">Coupon Percentage </label>
+                <input type="percentage" class="form-control item" name="couponPercentage" value="{{coupons.couponPercentage}}" placeholder="Coupon Percentage">
+            </div>
+            <div class="form-group text-center ">
+                <button type="submit" class="btn btn-block  create-account">SAVE</button>
+            </div>
+        </form>
+
+    </div>
+
+</body>
