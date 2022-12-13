@@ -150,11 +150,13 @@ module.exports={
 
  getProductDetails:async(req,res)=>{
     let cartCount=null
-        if(req.session.user){
+    let wishlistCount=null;
+    let user=req.session.user
+        if(user){
          cartCount=await userHelper.getCartCount(req.session.user._id);
          wishlistCount=await userHelper.getWishlistCount(req.session.user._id)
         }
-    let user=req.session.user
+   
     req.session.returnTo=req.originalUrl
     let product=await productHelpers.getProductDetails(req.query.id)
     res.render('user/product-view',{user,product,cartCount,wishlistCount});
