@@ -6,11 +6,11 @@
             <br>
             <div class="form-group">
                 <label for="">Name</label>
-                <input type="text" class="form-control item" id="username" name="name" placeholder="Product Name">
+                <input type="text" class="form-control item" id="username" name="name" placeholder="Product Name" required>
             </div>
             <div class="form-group">
                 <label for="">Category</label>
-                <select class="form-control item" class="form-control item" name="category" placeholder="Product Category">
+                <select class="form-control item" class="form-control item" name="category" placeholder="Product Category" required>
                     {{#each categories}}
                     <option>{{this.category}}</option>
                     {{/each}}
@@ -18,31 +18,31 @@
             </div>
             <div class="form-group">
                 <label for="">Price</label>
-                <input type="number" class="form-control item" name="price" placeholder="Product Price">
+                <input type="number" class="form-control item" name="price" placeholder="Product Price" required>
             </div>
             <div class="form-group">
                 <label for="">Description</label>
-                <input type="text" class="form-control item" name="description" placeholder="Product Discription">
+                <input type="text" class="form-control item" name="description" placeholder="Product Discription" required>
             </div>
             <div class="form-group">
                 <label for="">STOCK</label>
-                <input type="number" class="form-control item" name="stock" placeholder="Product Stock">
+                <input type="number" class="form-control item" name="stock" placeholder="Product Stock" required>
             </div>
             <div class="form-group">
                 <label for="">Image</label>
-                <input type="file" class="form-control item" name="image">
+                <input type="file" class="form-control item" name="image" required>
             </div>
             <div class="form-group">
                 <label for="">Image</label>
-                <input type="file" class="form-control item" name="image2">
+                <input type="file" class="form-control item" name="image2" required>
             </div>
             <div class="form-group">
                 <label for="">Image</label>
-                <input type="file" class="form-control item" name="image3">
+                <input type="file" class="form-control item" name="image3" required>
             </div>
             <div class="form-group">
                 <label for="">Image</label>
-                <input type="file" class="form-control item" name="image4">
+                <input type="file" class="form-control item" name="image4" required>
             </div>
             <div class="form-group text-center ">
                 <button type="submit" class="btn btn-block  create-account">SAVE</button>

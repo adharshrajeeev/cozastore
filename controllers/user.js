@@ -11,6 +11,7 @@ var paypal = require('paypal-rest-sdk');
 
 
 
+
 paypal.configure({
     'mode': 'sandbox', //sandbox or live
     'client_id': 'AdiaQvZGg7FxbhZPA75joHN4KYPuOarG7MHEbBYon_sZefXr8V_5e0oPXOZ75XxWJqq257Jawh4ZL3du',
@@ -33,13 +34,22 @@ module.exports={
          console.log(wishlistCount,"helll yea")
         }
        
-        let banners=await userHelper.getAllBanners();
+       
           
        
       
         let categories=await userHelper.getAllcategories()
-        UserDetailsHelper.getAllProducts().then((products)=>{
-          res.render('user/index',{user,products,cartCount,categories,banners,wishlistCount});
+        userHelper.getAllBanners().then((banners)=>{
+            UserDetailsHelper.getAllProducts().then((products)=>{
+                res.render('user/index',{user,products,cartCount,categories,banners,wishlistCount});
+              }).catch((err)=>{
+                console.log(err,"Product Error");
+                res.render('404',{layout:null})
+            })
+             
+        }).catch((err)=>{
+            console.log(err,"Banner Error");
+            res.render('404',{layout:null})
         })
        
                               
@@ -268,6 +278,14 @@ postconfirmOTP:(req,res)=>{
     })
  },
 
+
+ //-----------------------------------------PRODUCT REMOVE FROM CART------------------//
+
+ removeProductFromCart:async(req,res)=>{
+    userHelper.removeCartProduct(req.body).then(async(response)=>{
+        res.json({status:true})
+    })
+ },
 
  addToWishList:(req,res)=>{
 

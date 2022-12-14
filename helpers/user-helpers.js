@@ -5,13 +5,12 @@ var ObjectId=require('mongodb').ObjectId
 require('dotenv').config()
 const Client=require('twilio')(process.env.accoundSid,process.env.authToken)
 const moment = require("moment")
-// const { response } = require('../app');
+
 const Razorpay=require('razorpay');
 
 
 
 var paypal = require('paypal-rest-sdk');
-const { response } = require('express');
 
 
 
@@ -528,7 +527,26 @@ module.exports={
             products:{item:ObjectId(details.productId)}
           }
         }).then((response)=>{
-          console.log(response)
+          
+          resolve(response)
+        })
+      })
+    },
+
+    
+  /* -------------------------------------------------------------------------- */
+  /*                    REMOVE PRODUCT FROM CART                                */
+  /* -------------------------------------------------------------------------- */
+
+
+    removeCartProduct:(details)=>{
+      return new Promise((resolve,reject)=>{
+        db.get().collection(collection.CART_COLLECTION).updateOne({_id:ObjectId(details.cartId)},
+        {
+          $pull:{
+            products:{item:ObjectId(details.productId)}
+          }
+        }).then((response)=>{
           resolve(response)
         })
       })
@@ -1220,10 +1238,7 @@ module.exports={
 
 
 
-  addDeletedProductToCart:(orderId)=>{
-
-  },
-
+  
 
 
 

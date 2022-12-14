@@ -3,7 +3,7 @@ var router = express.Router();
 const { userhomePage,getLogin,getSignup,postSignup,ChangeProductQuantity,postLogin,getLogout,getProducts,
        getProductDetails,getotpPage,getcartDetails,addToCart,getCheckoutPage,PlaceOrder,
        sucessOrder,postOtp,getconfirmOTP,postconfirmOTP,getOrders,getUserProfile,
-       userCancelOrder,removeProductFrmCart,viewOrderedProducts,getCategoryWise,paymentVerify,postUserProfile,
+       userCancelOrder,removeProductFromCart,viewOrderedProducts,getCategoryWise,paymentVerify,postUserProfile,
        userCancelProduct,addUserAddress,setOrderedProductStatus,addDeliveryAaddress,editAddress,
        postEditUserAddress,deleteUserAddress,postCouponApply,postCouponRemove,displayWishList,addToWishList,removeProductFromWishlist,
        getPaymentFailed,postSearchProducts,paypalPaymentError,returnProduct}=require('../controllers/user')
@@ -29,6 +29,7 @@ router.post('/confirmotp',postconfirmOTP)
 
 router.get('/cart',getcartDetails)
 router.get('/addToCart/:id',addToCart)
+router.post('/removeFromCart',removeProductFromCart)
 
 router.get('/addToWishList/:id',addToWishList)
 router.get('/wishList',displayWishList)
@@ -36,7 +37,7 @@ router.get('/wishList',displayWishList)
 router.post('/removeFromWishList',removeProductFromWishlist)
 router.post('/changeProductQuantity',ChangeProductQuantity)
 
-router.get('/removeProduct/:id',removeProductFrmCart)
+// router.get('/removeProduct/:id',removeProductFrmCart)
  
 router.get('/proceedToCheckOut',getCheckoutPage)
 router.post('/placeOrder',PlaceOrder)

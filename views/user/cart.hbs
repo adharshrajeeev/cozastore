@@ -43,9 +43,7 @@
 							<li>
 								<a href="/">Home</a>
 								<ul class="sub-menu">
-									<li><a href="index.html">Homepage 1</a></li>
-									<li><a href="home-02.html">Homepage 2</a></li>
-									<li><a href="home-03.html">Homepage 3</a></li>
+									<li><a href="/">Homepage 1</a></li>
 								</ul>
 							</li>
 
@@ -249,7 +247,7 @@
 							<table class="table-shopping-cart">
 								<tr class="table_head">
 									<th class="column-1">Product</th>
-									<th class="column-2"></th>
+									<th class="column-2">Name</th>
 									<th class="column-3">Price</th>
 									<th class="column-4">Quantity</th>
 									{{!-- <th class="column-5">Total</th> --}}
@@ -287,8 +285,10 @@
 
 									{{!-- <td class="column-5">$ <span id="Total">{{../this.totalValue}}</span></td>
 									--}}
-									<td class="column-6"> <a href="/removeProduct/{{this._id}}" class="text-danger"><i
-												class="fas fa-trash fa-lg"></i></a></td>
+									<td class="column-6"> <button onclick="removeFromCart('{{this.product._id}}','{{this._id}}')"
+                                            class="btn-danger btn-sm">
+                                            Remove
+                                        </button></td>
 								</tr>
 
 								{{/each}}
