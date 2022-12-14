@@ -24,7 +24,7 @@ function changeQuantity(cartId,productId,userId,count){
                     button: "OK",
                   });
                setTimeout(()=>{
-                location.href='http://localhost:3000';
+                location.href='https://cozastore.gq/cart';
                },1000) 
             }
             else{

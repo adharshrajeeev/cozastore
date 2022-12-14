@@ -342,10 +342,9 @@ postconfirmOTP:(req,res)=>{
         let discountAmount=(totalPrice * parseInt(verifyCoupon.couponPercentage))/100;
         
         let amount=totalPrice-discountAmount;
-        console.log(discountAmount,"thi is dicsount++++++++++++++++++++++++")
-            console.log(amount,"this is original--------------- ")
+       
        await userHelper.placeOrder(req.body,products,amount,user._id).then((orderId)=>{
-            // console.log(req.body,"sugaam")
+           
             if(req.body['paymentMethod']==='COD'){
                 res.json({codSuccess:true})
             }
@@ -454,6 +453,7 @@ postconfirmOTP:(req,res)=>{
 
  getPaymentFailed:async(req,res)=>{
     // if(req.session.user.orderId){
+        
        await userHelper.deletePendingOrder(req.params.orderId).then(()=>{
         res.render('404',{layout:null});
        })
@@ -749,8 +749,18 @@ postSearchProducts:async(req,res)=>{
 
 
 
-paypalPaymentError:(req,res)=>{
-    res.render('404',{layout:null})
+paypalPaymentError:async(req,res)=>{
+    let user=req.session.user;
+    if(user){
+       let cartCount=await userHelper.getCartCount(req.session.user._id) 
+           let wishlistCount=await userHelper.getWishlistCount(req.session.user._id);
+            let categories=await userHelper.getAllcategories()
+        res.render('user/paymentFailed',{cartCount,wishlistCount,user,categories})
+    }else
+    {
+        res.redirect('/')
+    }
+   
 },
 
 
