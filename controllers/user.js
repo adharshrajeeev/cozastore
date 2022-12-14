@@ -357,7 +357,7 @@ postconfirmOTP:(req,res)=>{
                     },
                     "redirect_urls": {
                         "return_url": "https://cozastore.gq/orderSucess",
-                        "cancel_url": "https://cozastore.gq/paymentError"
+                        "cancel_url": "https://cozastore.gq/payment-failed/"+orderId,
                     },
                     "transactions": [{
                         "amount": {
