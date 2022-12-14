@@ -133,7 +133,8 @@ module.exports={
 
 
     getCategoryWise:async(req,res)=>{
-        let cartCount=null
+        let cartCount=null;
+        let wishlistCount=null;
         if(req.session.user){
             cartCount=await userHelper.getCartCount(req.session.user._id)
             wishlistCount=await userHelper.getWishlistCount(req.session.user._id)
@@ -355,8 +356,8 @@ postconfirmOTP:(req,res)=>{
                         "payment_method": "paypal"
                     },
                     "redirect_urls": {
-                        "return_url": "http://localhost:3000/orderSucess",
-                        "cancel_url": "http://localhost:3000/paymentError"
+                        "return_url": "https://cozastore.gq/orderSucess",
+                        "cancel_url": "https://cozastore.gq/paymentError"
                     },
                     "transactions": [{
                         "amount": {
@@ -405,8 +406,8 @@ postconfirmOTP:(req,res)=>{
                         "payment_method": "paypal"
                     },
                     "redirect_urls": {
-                        "return_url": "http://localhost:3000/orderSucess",
-                        "cancel_url": "http://localhost:3000/paymentError"
+                        "return_url": "https://cozastore.gq/orderSucess",
+                        "cancel_url": "https://cozastore.gq/paymentError"
                     },
                     "transactions": [{
                         "amount": {
@@ -486,10 +487,10 @@ postconfirmOTP:(req,res)=>{
             let allAddress=await userHelper.getShippingAddress(req.session.user._id)
             let cartCount=await userHelper.getCartCount(req.session.user._id)
             let  wishlistCount=await userHelper.getWishlistCount(req.session.user._id)
-            let totalOrders=await userHelper.getUserTotalOrders(req.session.user._id)
+           
            
             userHelper.getUserDetails(req.session.user._id).then((user)=>{
-                res.render('user/userProfile',{user,allAddress,cartCount,wishlistCount,totalOrders})
+                res.render('user/userProfile',{user,allAddress,cartCount,wishlistCount})
               })
             
         }else
@@ -707,6 +708,8 @@ displayWishList:async(req,res)=>{
 //---------------------------------SEARCH PRODUCTS--------------------------------------------------
 
 postSearchProducts:async(req,res)=>{
+    let cartCount=null;
+    let wishlistCount=null;
     let user=req.session.user
         if(user){
             cartCount=await userHelper.getCartCount(req.session.user._id) 

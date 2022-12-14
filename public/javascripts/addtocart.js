@@ -64,7 +64,7 @@ function razorpayPayment(order){
   },
   "modal": {
     "ondismiss": function(){
-      window.location.replace('http://localhost:3000/payment-failed/'+order.receipt);
+      window.location.replace('https://cozastore.gq/payment-failed/'+order.receipt);
     }
 },
     "prefill": {
@@ -99,7 +99,7 @@ function verifyPayment(payment,order) {
         if(response.status){
           location.href='/orderSucess'
         }else{
-          alert("Payment Faild");
+          alert("Payment Failed");
         }
       }
     

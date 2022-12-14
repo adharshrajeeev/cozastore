@@ -823,20 +823,6 @@ module.exports={
      },
 
 
-     /* -------------------------------------------------------------------------- */
-  /*                               GET USER TOTAL ORDER COUNT                     */
-  /* -------------------------------------------------------------------------- */
-
-
-
-
-     getUserTotalOrders:(userId)=>{
-      return new Promise(async(resolve,reject)=>{
-       let totalOrders=await db.get().collection(collection.ORDER_COLLECTION).find({_id:ObjectId(userId)}).count();
-       console.log(totalOrders,"total")
-         resolve(totalOrders)
-      })
-     },
 
      
   /* -------------------------------------------------------------------------- */
