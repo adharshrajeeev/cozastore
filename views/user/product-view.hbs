@@ -42,9 +42,7 @@
 							<li>
 								<a href="/">Home</a>
 								<ul class="sub-menu">
-									<li><a href="index.html">Homepage 1</a></li>
-									<li><a href="home-02.html">Homepage 2</a></li>
-									<li><a href="home-03.html">Homepage 3</a></li>
+									<li><a href="/">Homepage</a></li>
 								</ul>
 							</li>
 
@@ -52,21 +50,11 @@
 								<a href="/products">Shop</a>
 							</li>
 
-							<li >
-								<a href="shoping-cart.html">Features</a>
-							</li>
-
+							{{#each categories}}
 							<li>
-								<a href="blog.html">Blog</a>
+								<a href="/viewCategoryWise?id={{this._id}}">{{category}}</a>
 							</li>
-
-							<li>
-								<a href="about.html">About</a>
-							</li>
-
-							<li>
-								<a href="contact.html">Contact</a>
-							</li>
+							{{/each}}
 						</ul>
 					</div>	
 
@@ -105,7 +93,7 @@
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="index.html"><img src="../../Client/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+				<a href="/"><img src="../../Client/images/icons/logo-01.png" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
@@ -160,11 +148,10 @@
 
 			<ul class="main-menu-m">
 				<li>
-					<a href="index.html">Home</a>
+					<a href="/">Home</a>
 					<ul class="sub-menu-m">
-						<li><a href="index.html">Homepage 1</a></li>
-						<li><a href="home-02.html">Homepage 2</a></li>
-						<li><a href="home-03.html">Homepage 3</a></li>
+						<li><a href="/">Homepage 1</a></li>
+						
 					</ul>
 					<span class="arrow-main-menu-m">
 						<i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -175,21 +162,11 @@
 					<a href="/products">Shop</a>
 				</li>
 
-				<li>
-					<a href="shoping-cart.html" >Features</a>
-				</li>
-
-				<li>
-					<a href="blog.html">Blog</a>
-				</li>
-
-				<li>
-					<a href="about.html">About</a>
-				</li>
-
-				<li>
-					<a href="contact.html">Contact</a>
-				</li>
+				{{#each categories}}
+							<li>
+								<a href="/viewCategoryWise?id={{this._id}}">{{category}}</a>
+							</li>
+							{{/each}}
 			</ul>
 		</div>
 
@@ -212,90 +189,7 @@
 	</header>
 	
 
-	<!-- Cart -->
-	{{!-- <div class="wrap-header-cart js-panel-cart">
-		<div class="s-full js-hide-cart"></div>
-
-		<div class="header-cart flex-col-l p-l-65 p-r-25">
-			<div class="header-cart-title flex-w flex-sb-m p-b-8">
-				<span class="mtext-103 cl2">
-					Your Cart
-				</span>
-
-				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-					<i class="zmdi zmdi-close"></i>
-				</div>
-			</div>
-			
-			<div class="header-cart-content flex-w js-pscroll">
-				<ul class="header-cart-wrapitem w-full">
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="../../Clientimages/item-cart-01.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								White Shirt Pleat
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $19.00
-							</span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="../../Clientimages/item-cart-02.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Converse All Star
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $39.00
-							</span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="../Clientimages/item-cart-03.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Nixon Porter Leather
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $17.00
-							</span>
-						</div>
-					</li>
-				</ul>
-				
-				<div class="w-full">
-					<div class="header-cart-total w-full p-tb-40">
-						Total: $75.00
-					</div>
-
-					<div class="header-cart-buttons flex-w w-full">
-						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							View Cart
-						</a>
-
-						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							Check Out
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> --}}
+	
 
 
 	<!-- breadcrumb -->
@@ -376,6 +270,7 @@
 					
 				<div class="col-md-6 col-lg-5 p-b-30">
 					<div class="p-r-50 p-t-5 p-lr-0-lg">
+						{{#if product.discountPercentage}}
 						<h4 class="mtext-105 cl2 js-name-detail p-b-14">
 							{{product.name}}
 						</h4>
@@ -383,11 +278,24 @@
 						<span class="mtext-106 cl2">
 							Rs.{{product.price}}
 						</span>
-
+						  <strike class="pl-2" style="color: rgb(4, 3, 3);font-size:small"> Rs.{{product.originalPrice}}</strike>
+                        	<span   style="color: rgb(255, 0, 0); font-size:small" >({{product.discountPercentage}}% OFF)</span>
 						<p class="stext-102 cl3 p-t-23">
 							{{product.description}}
 						</p>
+						{{else}}
+						<h4 class="mtext-105 cl2 js-name-detail p-b-14">
+							{{product.name}}
+						</h4>
+
+						<span class="mtext-106 cl2">
+							Rs.{{product.price}}
+						</span>
 						
+						<p class="stext-102 cl3 p-t-23">
+							{{product.description}}
+						</p>
+						{{/if}}
 						<!--  -->
 						<div class="p-t-33">
 							{{!-- <div class="flex-w flex-r-m p-b-10">
@@ -862,6 +770,7 @@
 <script src="https://cdn.jsdelivr.net/npm/js-image-zoom/js-image-zoom.min.js"></script>
 
 <script>
+	
    
     var options = {
     width: 450, // required

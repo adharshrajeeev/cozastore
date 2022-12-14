@@ -356,23 +356,25 @@
                         <div class="block2-txt flex-w flex-t p-t-14">
                             <div class="block2-txt-child1 flex-col-l ">
                                 {{#if this.discountPercentage}}
-                                <a href="#" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                <a href="#" style="color: black;" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
                                     {{this.name}}
-                                    <span class="pl-3" style="color: red;">{{this.discountPercentage}}%</span>
+                                   
                                 </a>
 
                                 <span class="stext-105 cl3">
-                                    Rs. <strike style="color: red;">{{this.originalPrice}}</strike>
+                                    <span style="color: black;font-weight:bolder;">  Rs. {{this.price}}</span> 
+                                    <strike class="pl-2" style="color: rgb(4, 3, 3);font-size:smaller"> Rs.{{this.originalPrice}}</strike>
+                                     <span   style="color: rgb(230, 104, 104); font-size:x-small" >({{this.discountPercentage}}% OFF)</span>
                                 </span>
                                 <span class="stext-105 cl3">
-                                    Rs. {{this.price}}
+                                  
                                 </span>
 
                                 {{else}}
-                                <a href="" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                <a href="" style="color: black;" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
                                     {{this.name}}
                                 </a>
-                                <span class="stext-105 cl3">
+                                <span class="stext-105 cl3" style="color: black;font-weight:bolder;">
                                     Rs. {{this.price}}
                                 </span>
                                 {{/if}}
@@ -407,7 +409,7 @@
 
             <!-- Load more -->
             <div class="flex-c-m flex-w w-full p-t-45">
-                <a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
+                <a href="/" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 mb-2 trans-04">
                     Load More
                 </a>
             </div>

@@ -121,11 +121,12 @@ module.exports={
 
          cartCount=await userHelper.getCartCount(req.session.user._id)
          wishlistCount=await userHelper.getWishlistCount(req.session.user._id)
-        }                                             
+        }     
+        let categories=await userHelper.getAllcategories()                                        
         UserDetailsHelper.getAllProducts().then((products)=>{
         let user=req.session.user
         req.session.returnTo=req.originalUrl;
-        res.render('user/product',{products,user,cartCount,wishlistCount})
+        res.render('user/product',{products,user,cartCount,wishlistCount,categories})
        })
 },
 
@@ -141,8 +142,9 @@ module.exports={
            }
            let user=req.session.user;
            req.session.returnTo=req.originalUrl;
+           let categories=await userHelper.getAllcategories()
            let products=await productHelpers.getCategoryWiseProducts(req.query.id)
-        res.render('user/product-categoryView',{user,products,cartCount,wishlistCount})
+        res.render('user/product-categoryView',{user,products,cartCount,wishlistCount,categories})
     },
 
 
@@ -150,8 +152,8 @@ module.exports={
  //-------------------------SINGLE PRODUCT VIEW DETAILS----------------------------------//
 
  getProductDetails:async(req,res)=>{
-    let cartCount=null
-    let wishlistCount=null;
+    let cartCount=0
+    let wishlistCount=0;
     let user=req.session.user
         if(user){
          cartCount=await userHelper.getCartCount(req.session.user._id);
@@ -159,8 +161,9 @@ module.exports={
         }
    
     req.session.returnTo=req.originalUrl
+    let categories=await userHelper.getAllcategories()
     let product=await productHelpers.getProductDetails(req.query.id)
-    res.render('user/product-view',{user,product,cartCount,wishlistCount});
+    res.render('user/product-view',{user,product,cartCount,wishlistCount,categories});
  },
 
 
@@ -232,9 +235,10 @@ postconfirmOTP:(req,res)=>{
         if(products.length>0){
             totalValue=await userHelper.getTotalAmount(req.session.user._id)
         }
+        let categories=await userHelper.getAllcategories()
         wishlistCount=await userHelper.getWishlistCount(req.session.user._id)
          cartCount=await userHelper.getCartCount(req.session.user._id) 
-         res.render('user/cart',{user,products,totalValue,cartCount,name,wishlistCount})
+         res.render('user/cart',{user,products,totalValue,cartCount,name,wishlistCount,categories})
     }else{
         res.redirect('/')
     }
@@ -306,9 +310,11 @@ postconfirmOTP:(req,res)=>{
     if(user){
         let address=await userHelper.getShippingAddress(req.session.user._id)
         let cartCount=await userHelper.getCartCount(req.session.user._id)
+        let categories=await userHelper.getAllcategories()
          let  wishlistCount=await userHelper.getWishlistCount(req.session.user._id)
-        let total=await userHelper.getTotalAmount(req.session.user._id)
-        res.render('user/checkOut',{user,cartCount,total,address,wishlistCount})
+        let total=await userHelper.getTotalAmount(req.session.user._id);
+
+        res.render('user/checkOut',{user,cartCount,total,address,wishlistCount,categories})
     }else
     {
         res.redirect('/')
@@ -344,7 +350,7 @@ postconfirmOTP:(req,res)=>{
                 res.json({codSuccess:true})
             }
             else if(req.body['paymentMethod']==='RAZORPAY'){
-               userHelper.generateRazorPay(orderId,totalPrice).then((response)=>{
+               userHelper.generateRazorPay(orderId,amount).then((response)=>{
                 response.razorPay=true
                    res.json(response)
                })
@@ -362,7 +368,7 @@ postconfirmOTP:(req,res)=>{
                     "transactions": [{
                         "amount": {
                             "currency": "USD",
-                            "total": totalPrice
+                            "total": amount
                         },
                         "description": "this is order"
                     }]
@@ -389,7 +395,7 @@ postconfirmOTP:(req,res)=>{
     }
     else{
         userHelper.placeOrder(req.body,products,totalPrice,user).then((orderId)=>{
-            // console.log(req.body,"sugaam")
+            
             if(req.body['paymentMethod']==='COD'){
                 res.json({codSuccess:true})
             }
@@ -458,9 +464,10 @@ postconfirmOTP:(req,res)=>{
 
  //-----------------------------------------ORDER SUCESSS RENDER PAGE-------------------------
 
- sucessOrder:(req,res)=>{
+ sucessOrder:async(req,res)=>{
     let user=req.session.user
-    res.render('user/orderSucess',{user})
+    let categories=await userHelper.getAllcategories()
+    res.render('user/orderSucess',{user,categories})
  },
 
  //----------------------------------------VIEW ORDERS PAGE------------------------------------
@@ -471,8 +478,8 @@ postconfirmOTP:(req,res)=>{
         let cartCount=await userHelper.getCartCount(req.session.user._id)
         let  wishlistCount=await userHelper.getWishlistCount(req.session.user._id)
         let orders=await userHelper.getUserOrders(req.session.user._id)
-        console.log(orders)
-        res.render('user/userOrders',{orders,user:req.session.user,cartCount,wishlistCount})
+        let categories=await userHelper.getAllcategories()
+        res.render('user/userOrders',{orders,user:req.session.user,cartCount,wishlistCount,categories})
     }else{
         res.redirect('/')
     }
@@ -487,10 +494,10 @@ postconfirmOTP:(req,res)=>{
             let allAddress=await userHelper.getShippingAddress(req.session.user._id)
             let cartCount=await userHelper.getCartCount(req.session.user._id)
             let  wishlistCount=await userHelper.getWishlistCount(req.session.user._id)
-           
+            let categories=await userHelper.getAllcategories()
            
             userHelper.getUserDetails(req.session.user._id).then((user)=>{
-                res.render('user/userProfile',{user,allAddress,cartCount,wishlistCount})
+                res.render('user/userProfile',{user,allAddress,cartCount,wishlistCount,categories})
               })
             
         }else
@@ -531,9 +538,10 @@ postconfirmOTP:(req,res)=>{
         let Id=req.params.id
         let cartCount=await userHelper.getCartCount(req.session.user._id)
         let  wishlistCount=await userHelper.getWishlistCount(req.session.user._id)
+        let categories=await userHelper.getAllcategories()
         userHelper.editUserAddress(Id,userId).then((data)=>{
 
-            res.render('user/editUserAddress',{data,user,cartCount,wishlistCount})
+            res.render('user/editUserAddress',{data,user,cartCount,wishlistCount,categories})
         })
     }else
     {
@@ -579,7 +587,8 @@ postconfirmOTP:(req,res)=>{
     let products=await userHelper.getOrderdProducts(req.params.id)
     let cartCount=await userHelper.getCartCount(req.session.user._id)
     let  wishlistCount=await userHelper.getWishlistCount(req.session.user._id)
-    res.render('user/orderedProducts',{products,user:req.session.user,cartCount,wishlistCount})
+    let categories=await userHelper.getAllcategories()
+    res.render('user/orderedProducts',{products,user:req.session.user,cartCount,wishlistCount,categories})
  },
 
 
@@ -698,8 +707,9 @@ displayWishList:async(req,res)=>{
         }
          cartCount=await userHelper.getCartCount(req.session.user._id) 
          wishlistCount=await userHelper.getWishlistCount(req.session.user._id)
+         let categories=await userHelper.getAllcategories()
          console.log(products,'wish list prducts')
-         res.render('user/wishList',{user,products,totalValue,cartCount,wishlistCount})
+         res.render('user/wishList',{user,products,totalValue,cartCount,wishlistCount,categories})
     }else{
         res.redirect('/')
     }
@@ -711,18 +721,21 @@ postSearchProducts:async(req,res)=>{
     let cartCount=null;
     let wishlistCount=null;
     let user=req.session.user
+    
         if(user){
             cartCount=await userHelper.getCartCount(req.session.user._id) 
             wishlistCount=await userHelper.getWishlistCount(req.session.user._id);
+            let categories=await userHelper.getAllcategories()
             userHelper.searchProducts(req.body.search).then((products)=>{
-                res.render('user/searchedProducts',{products,cartCount,wishlistCount,user})
+                res.render('user/searchedProducts',{products,cartCount,wishlistCount,user,categories})
             }).catch((err)=>{
                 console.log(err);
             })
         }
         else{
+            let categories=await userHelper.getAllcategories()
             userHelper.searchProducts(req.body.search).then((products)=>{
-                res.render('user/searchedProducts',{products})
+                res.render('user/searchedProducts',{products,categories})
             }).catch((err)=>{
                 console.log(err);
             })

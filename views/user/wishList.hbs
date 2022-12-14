@@ -1,7 +1,6 @@
-
 <body class="animsition">
- 
-  <!--//============================================================HEADER STARTS HERE==================================================================//--->
+
+    <!--//============================================================HEADER STARTS HERE==================================================================//--->
     <!-- Header -->
     <header>
         <!-- Header desktop -->
@@ -15,14 +14,14 @@
 
                     <div class="right-top-bar flex-w h-full">
                         <a href="/userLogin" class="flex-c-m trans-04 p-lr-25">
-                           {{#if user}}
-                             {{user.name}}
-                              <a href="/userProfile" class="flex-c-m trans-04 p-lr-25">
-                              My Account
-                             </a>
-                             <a href="/userLogout" class="flex-c-m trans-04 p-lr-25">
-                              LOGOUT
-                             </a>
+                            {{#if user}}
+                            {{user.name}}
+                            <a href="/userProfile" class="flex-c-m trans-04 p-lr-25">
+                                My Account
+                            </a>
+                            <a href="/userLogout" class="flex-c-m trans-04 p-lr-25">
+                                LOGOUT
+                            </a>
                             {{else}}
                             LOGIN
                             {{/if}}
@@ -46,7 +45,7 @@
                                 <a href="/">Home</a>
                                 <ul class="sub-menu">
                                     <li><a href="/">Homepage 1</a></li>
-                                   
+
                                 </ul>
                             </li>
 
@@ -54,52 +53,57 @@
                                 <a href="/products">Shop</a>
                             </li>
 
-                            <li >
-                                <a href="/">Features</a>
+                            {{#each categories}}
+                            <li>
+                                <a href="/viewCategoryWise?id={{this._id}}">{{category}}</a>
                             </li>
+                            {{/each}}
 
-                           
+
                         </ul>
                     </div>
 
                     <!-- Icon header -->
                     <div class="wrap-icon-header flex-w flex-r-m">
-                       <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-searchh">
-							<i class="zmdi zmdi-search "></i>
+                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-searchh">
+                            <i class="zmdi zmdi-search "></i>
 
-                             {{!-- <section id="list-items" style=" position: absolute; max-width: 100%;  z-index: 5;  background-color: wheat; width: 500px; border-style: ; border-radius: 10px;  display: none;">  --}}
-						</div>
-                           
+                            {{!-- <section id="list-items"
+                                style=" position: absolute; max-width: 100%;  z-index: 5;  background-color: wheat; width: 500px; border-style: ; border-radius: 10px;  display: none;">
+                                --}}
+                        </div>
+
                         {{#if user}}
                         <a href="/cart">
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart icon-header-noti"  data-notify="{{cartCount}}">
-                            <i class="zmdi zmdi-shopping-cart"></i>
-                        </div>
+                            <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart icon-header-noti"
+                                data-notify="{{cartCount}}">
+                                <i class="zmdi zmdi-shopping-cart"></i>
+                            </div>
                         </a>
                         {{else}}
                         <a href="/userLogin">
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
-                            <i class="zmdi zmdi-shopping-cart"></i>
-                        </div>
+                            <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+                                <i class="zmdi zmdi-shopping-cart"></i>
+                            </div>
                         </a>
                         {{/if}}
-                         {{#if user}}
+                        {{#if user}}
                         <a href="/wishList"
-                            class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"  data-notify="{{wishlistCount}}">
+                            class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
+                            data-notify="{{wishlistCount}}">
                             <i class="zmdi zmdi-favorite-outline"></i>
                         </a>
-                         {{else}}
-                           <a href="/userLogin"
-                            class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+                        {{else}}
+                        <a href="/userLogin" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
                             <i class="zmdi zmdi-favorite-outline"></i>
                         </a>
-                         {{/if}}
+                        {{/if}}
                     </div>
-                   
+
                 </nav>
-             
+
             </div>
-            
+
         </div>
 
         <!-- Header Mobile -->
@@ -116,27 +120,28 @@
                 </div>
 
                 {{#if user}}
-                        <a href="/cart">
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart icon-header-noti"  data-notify="{{cartCount}}">
-                            <i class="zmdi zmdi-shopping-cart"></i>
-                        </div>
-                        </a>
-                         <a href="/wishList"
-                            class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"  data-notify="{{wishlistCount}}">
-                            <i class="zmdi zmdi-favorite-outline"></i>
-                        </a>
-                        {{else}}
-                        <a href="/userLogin">
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
-                            <i class="zmdi zmdi-shopping-cart"></i>
-                        </div>
-                        </a>
-                         <a href="/userLogin"
-                            class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
-                            <i class="zmdi zmdi-favorite-outline"></i>
-                        </a>
-                        {{/if}}
-                
+                <a href="/cart">
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart icon-header-noti"
+                        data-notify="{{cartCount}}">
+                        <i class="zmdi zmdi-shopping-cart"></i>
+                    </div>
+                </a>
+                <a href="/wishList"
+                    class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
+                    data-notify="{{wishlistCount}}">
+                    <i class="zmdi zmdi-favorite-outline"></i>
+                </a>
+                {{else}}
+                <a href="/userLogin">
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+                        <i class="zmdi zmdi-shopping-cart"></i>
+                    </div>
+                </a>
+                <a href="/userLogin" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+                    <i class="zmdi zmdi-favorite-outline"></i>
+                </a>
+                {{/if}}
+
             </div>
 
             <!-- Button show menu -->
@@ -159,15 +164,15 @@
 
                 <li>
                     <div class="right-top-bar flex-w h-full">
-                             <a href="/userLogin" class="flex-c-m trans-04 p-lr-25">
+                        <a href="/userLogin" class="flex-c-m trans-04 p-lr-25">
                             {{#if user}}
-                             {{user.name}}
-                              <a href="/userProfile" class="flex-c-m trans-04 p-lr-25">
-                              My Account
-                             </a>
-                             <a href="/userLogout" class="flex-c-m trans-04 p-lr-25">
-                              LOGOUT
-                             </a>
+                            {{user.name}}
+                            <a href="/userProfile" class="flex-c-m trans-04 p-lr-25">
+                                My Account
+                            </a>
+                            <a href="/userLogout" class="flex-c-m trans-04 p-lr-25">
+                                LOGOUT
+                            </a>
                             {{else}}
                             LOGIN
                             {{/if}}
@@ -179,8 +184,8 @@
                 <li>
                     <a href="/">Home</a>
                     <ul class="sub-menu-m">
-                        <li><a href="/">Homepage 1</a></li>
-                        
+                        <li><a href="/">Homepage </a></li>
+
                     </ul>
                     <span class="arrow-main-menu-m">
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -191,21 +196,11 @@
                     <a href="/products">Shop</a>
                 </li>
 
+                {{#each categories}}
                 <li>
-                    <a href="shoping-cart.html"  >Features</a>
+                    <a href="/viewCategoryWise?id={{this._id}}">{{category}}</a>
                 </li>
-
-                <li>
-                    <a href="blog.html">Blog</a>
-                </li>
-
-                <li>
-                    <a href="about.html">About</a>
-                </li>
-
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
+                {{/each}}
             </ul>
         </div>
 
@@ -225,84 +220,89 @@
                 </form>
             </div>
         </div>
-      </div>
+        </div>
     </header>
- <!--//============================================================HEADER ENDS HERE==================================================================//--->
-   
+    <!--//============================================================HEADER ENDS HERE==================================================================//--->
 
 
 
-   
+
+
 
     <!--========================================== CATEGORIES======================== ==========================-->
     <!-- Banner -->
-    
+
 
     <!-- Product -->
     <section class="bg0 p-t-23 p-b-140 " style="height: 100%;">
         <div class="container">
             <div class="p-b-10 mt-5 pt-5">
                 <h3 class="ltext-103 cl5">
-                   WISHLIST
+                    WISHLIST
                 </h3>
             </div>
             {{#ifEquals wishlistCount '0'}}
-            
-                 <div class="text-center mt-5 pt-5">
-                    <h1>YOUR WISH LIST IS EMPTY</h1>
-                    <br>
-                       <a href="/" style="width: 250px;" class="btn btn-secondary ">CONTINUE SHOPPINH</a>
-                </div>
+
+            <div class="text-center mt-5 pt-5">
+                <h1>YOUR WISH LIST IS EMPTY</h1>
+                <br>
+                <a href="/" style="width: 250px;background-color:royalblue"  class="btn btn-secondary ">CONTINUE SHOPPING</a>
+            </div>
             {{else}}
 
             <div class="row isotope-grid mt-5">
                 {{#each products}}
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-					<!-- Block2 -->
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+                    <!-- Block2 -->
 
                     <div class="card">
                         <div class="card-body">
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<a href="/getProductDetail?id={{this.product._id}}"><img src="/product-images/{{this.product._id}}.jpg"  alt="IMG-PRODUCT"></a>
+                            <div class="block2">
+                                <div class="block2-pic hov-img0">
+                                    <a href="/getProductDetail?id={{this.product._id}}"><img
+                                            src="/product-images/{{this.product._id}}.jpg" alt="IMG-PRODUCT"></a>
 
-							
-						</div>
 
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									{{this.product.name}}
-								</a>
+                                </div>
 
-								<span class="stext-105 cl3" style="font-weight: bold;">
-								        ₹. {{this.product.price}}
-								</span>
-                                <br>
-							</div>
-                            
-                             <div>
-                                <button onclick="addToCart('{{this.product._id}}')"  class=" btn-secondary  btn-sm" >
-										      Add to cart
-									       </button>
-                                           <button onclick="removeFromWishList('{{this.product._id}}','{{this._id}}')"  class="btn-danger btn-sm ml-2  ">
-										      Remove 
-									       </button>
-                             </div>
-                                 
-							{{!-- <div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04" src="../Client/images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="../Client/images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div> --}}
-						</div>
-					</div>
+                                <div class="block2-txt flex-w flex-t p-t-14">
+                                    <div class="block2-txt-child1 flex-col-l ">
+                                        <a href="" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                            {{this.product.name}}
+                                        </a>
+
+                                        <span class="stext-105 cl3" style="font-weight: bold;">
+                                            ₹. {{this.product.price}}
+                                        </span>
+                                        <br>
+                                    </div>
+
+                                    <div>
+                                        <button onclick="addToCart('{{this.product._id}}')"
+                                            class=" btn-secondary  btn-sm">
+                                            Add to cart
+                                        </button>
+                                        <button onclick="removeFromWishList('{{this.product._id}}','{{this._id}}')"
+                                            class="btn-danger btn-sm ml-2  ">
+                                            Remove
+                                        </button>
+                                    </div>
+
+                                    {{!-- <div class="block2-txt-child2 flex-r p-t-3">
+                                        <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+                                            <img class="icon-heart1 dis-block trans-04"
+                                                src="../Client/images/icons/icon-heart-01.png" alt="ICON">
+                                            <img class="icon-heart2 dis-block trans-04 ab-t-l"
+                                                src="../Client/images/icons/icon-heart-02.png" alt="ICON">
+                                        </a>
+                                    </div> --}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    </div>
-				</div>
+                </div>
 
-				{{/each}}
+                {{/each}}
             </div>
             {{/ifEquals}}
             <!-- Load more -->

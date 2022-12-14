@@ -1,10 +1,10 @@
+<link rel="shortcut icon" href="./../Client/UserProfile/assets/images/favicon.png" />
+<!-- Plugins CSS -->
+<link rel="stylesheet" href="./../Client/UserProfile/assets/css/plugins.css" />
+<!-- Main Style CSS -->
+<link rel="stylesheet" href="./../Client/UserProfile/assets/css/style.css" />
+<link rel="stylesheet" href="./../Client/UserProfile/assets/css/responsive.css" />
 
-  <link rel="shortcut icon" href="./../Client/UserProfile/assets/images/favicon.png" />
-        <!-- Plugins CSS -->
-        <link rel="stylesheet" href="./../Client/UserProfile/assets/css/plugins.css" />
-        <!-- Main Style CSS -->
-        <link rel="stylesheet" href="./../Client/UserProfile/assets/css/style.css" />
-        <link rel="stylesheet" href="./../Client/UserProfile/assets/css/responsive.css" />
 <body class="animsition">
 
     <!--//============================================================HEADER STARTS HERE==================================================================//--->
@@ -52,7 +52,7 @@
                                 <a href="/">Home</a>
                                 <ul class="sub-menu">
                                     <li><a href="/">Homepage 1</a></li>
-                                    
+
                                 </ul>
                             </li>
 
@@ -60,11 +60,13 @@
                                 <a href="/products">Shop</a>
                             </li>
 
+                            {{#each categories}}
                             <li>
-                                <a href="/">Features</a>
+                                <a href="/viewCategoryWise?id={{this._id}}">{{category}}</a>
                             </li>
+                            {{/each}}
 
-                           
+
                         </ul>
                     </div>
 
@@ -73,24 +75,25 @@
                         <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
                             <i class="zmdi zmdi-search"></i>
                         </div>
-                      {{#if user}}
+                        {{#if user}}
                         <a href="/cart">
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart icon-header-noti"  data-notify="{{cartCount}}">
-                            <i class="zmdi zmdi-shopping-cart"></i>
-                        </div>
+                            <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart icon-header-noti"
+                                data-notify="{{cartCount}}">
+                                <i class="zmdi zmdi-shopping-cart"></i>
+                            </div>
                         </a>
-                         <a href="/wishList"
-                            class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"  data-notify="{{wishlistCount}}">
+                        <a href="/wishList"
+                            class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
+                            data-notify="{{wishlistCount}}">
                             <i class="zmdi zmdi-favorite-outline"></i>
                         </a>
                         {{else}}
                         <a href="/userLogin">
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
-                            <i class="zmdi zmdi-shopping-cart"></i>
-                        </div>
+                            <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+                                <i class="zmdi zmdi-shopping-cart"></i>
+                            </div>
                         </a>
-                         <a href="/userLogin"
-                            class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+                        <a href="/userLogin" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
                             <i class="zmdi zmdi-favorite-outline"></i>
                         </a>
                         {{/if}}
@@ -111,27 +114,28 @@
                 <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
                     <i class="zmdi zmdi-search"></i>
                 </div>
-                      {{#if user}}
-                        <a href="/cart">
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart icon-header-noti"  data-notify="{{cartCount}}">
-                            <i class="zmdi zmdi-shopping-cart"></i>
-                        </div>
-                        </a>
-                         <a href="/wishList"
-                            class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"  data-notify="{{wishlistCount}}">
-                            <i class="zmdi zmdi-favorite-outline"></i>
-                        </a>
-                        {{else}}
-                        <a href="/userLogin">
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
-                            <i class="zmdi zmdi-shopping-cart"></i>
-                        </div>
-                        </a>
-                         <a href="/userLogin"
-                            class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
-                            <i class="zmdi zmdi-favorite-outline"></i>
-                        </a>
-                        {{/if}}
+                {{#if user}}
+                <a href="/cart">
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart icon-header-noti"
+                        data-notify="{{cartCount}}">
+                        <i class="zmdi zmdi-shopping-cart"></i>
+                    </div>
+                </a>
+                <a href="/wishList"
+                    class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
+                    data-notify="{{wishlistCount}}">
+                    <i class="zmdi zmdi-favorite-outline"></i>
+                </a>
+                {{else}}
+                <a href="/userLogin">
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+                        <i class="zmdi zmdi-shopping-cart"></i>
+                    </div>
+                </a>
+                <a href="/userLogin" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+                    <i class="zmdi zmdi-favorite-outline"></i>
+                </a>
+                {{/if}}
 
             </div>
 
@@ -176,7 +180,7 @@
                     <a href="/">Home</a>
                     <ul class="sub-menu-m">
                         <li><a href="/">Homepage 1</a></li>
-                       
+
                     </ul>
                     <span class="arrow-main-menu-m">
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -187,11 +191,13 @@
                     <a href="/products">Shop</a>
                 </li>
 
+                {{#each categories}}
                 <li>
-                    <a href="/">Features</a>
+                    <a href="/viewCategoryWise?id={{this._id}}">{{category}}</a>
                 </li>
+                {{/each}}
 
-               
+
             </ul>
         </div>
 
@@ -202,7 +208,7 @@
                     <img src="../Client/images/icons/icon-close2.png" alt="CLOSE">
                 </button>
 
-                 <form class="wrap-search-header flex-w p-l-15" action="/searchProducts" method="post">
+                <form class="wrap-search-header flex-w p-l-15" action="/searchProducts" method="post">
                     <input class="plh3" type="text" name="search" id="search-products" placeholder="Search Products">
                     <button type="submit" class="flex-c-m trans-04">
                         <i class="zmdi zmdi-search"></i>
@@ -215,285 +221,319 @@
     </header>
     <!--//============================================================HEADER ENDS HERE==================================================================//--->
 
-     
-        
-
-            
-
-            <!-- Body Content -->
-            <div id="page-content" class="mt-5">
-                <!-- Page Title -->
-                <div class="page section-header text-center  pt-5">
-                    <div class="page-title">
-                        
-                    </div>
-                </div>
-                <!-- End Page Title -->
-                <div class="bredcrumbWrap bredcrumbWrapPage bredcrumb-style2 text-center">
-                    <div class="container breadcrumbs">
-                        <a href="/" title="Back to the home page">Home</a><span aria-hidden="true">|</span><span class="title-bold">My Account</span>
-                    </div>
-                </div>
-
-                <div class="container-fluid">
-                  
-                    <div class="row mb-4 mb-lg-5 pb-lg-5">
-                        <div class="col-xl-2 col-lg-2 col-md-12 md-margin-20px-bottom">
-                            <!-- Nav tabs -->
-                            <ul class="nav flex-column dashboard-list mb-4 mb-lg-0" role="tablist">
-                                <li><a class="nav-link active" data-bs-toggle="tab" href="#dashboard">Dashboard</a></li>
-                                <li><a class="nav-link"  href="/ViewOrders">Orders</a></li>
-                                <li><a class="nav-link" data-bs-toggle="tab" href="#address">Addresses</a></li>
-                                <li><a class="nav-link" data-bs-toggle="tab" href="#account-details">Account details</a></li>
-                                <li><a class="nav-link" data-bs-toggle="tab" href="#wallet-details">Wallet details</a></li>
-                                <li><a class="nav-link" href="/userLogout">logout</a></li>
-                            </ul>
-                            <!-- End Nav tabs -->
-                        </div>
-
-                        <div class="col-xs-10 col-lg-10 col-md-12">
-                            <!-- Tab panes -->
-                            <div class="tab-content dashboard-content padding-30px-all md-padding-15px-all" style="">
-                                <!-- Dashboard -->
-                                <div id="dashboard" class="tab-pane fade active show">
-                                    <h3>Dashboard </h3>
-                                  
-                                    <div class="row user-profile mt-4">
-                                        <div class="col-12 col-lg-6">
-                                            <div class="profile-img">
-                                              
-                                                <div class="detail ms-3">
-                                                    <h5 class="mb-1">{{user.name}}. <span>{{user.lname}}</span></h5>
-                                                    <h6>User Name: <strong>{{user.name}}</strong></h6>
-                                                     <h6>Email: <strong>{{user.email}}</strong></h6>
-                                                      <h6>Mobile No: <strong>{{user.phoneNumber}}</strong></h6>
-                                                </div>
-                                                <div class="lbl">SILVER USER</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6">
-                                            <ul class="profile-order mt-3 mt-lg-0">
-                                                {{#if user.wallet}}
-                                                <li>
-                                                    <h3 class="mb-1">₹ {{user.wallet}}</h3>
-                                                    Wallet Balance
-                                                </li>
-                                                {{else}}
-                                                 <li>
-                                                    <h3 class="mb-1">₹ 0 </h3>
-                                                    Wallet Balance
-                                                </li>
-                                                {{/if}}
-                                                
-                                             
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                <!-- End Dashboard -->
-
-                               
 
 
-                                <!-- Address -->
-                                <div id="address" class="address tab-pane">
-                                    <h3>Addresses</h3>
-                                    <p class="xs-fon-13 margin-10px-bottom">The following addresses will be used on the checkout page by default.</p>
-                                    <div class="row">
-                                        <div class="col-12 col-sm-4">
-                                            <h4 class="billing-address">Shipping address</h4>
 
-                                            <div class="accordion add-address mt-3" id="address1">
-                                                <button class="collapsed btn btn--small" type="button" data-bs-toggle="collapse" data-bs-target="#shipping" aria-expanded="false" aria-controls="shipping">Add Address</button>
-                                                <div id="shipping" class="accordion-collapse collapse" data-bs-parent="#address">
-                                                    <form class="address-from mt-3" id="addShippingAddress" action="/addUserAddress" method="post">
-                                                        <fieldset>
-                                                            <h2 class="login-title mb-3">Shipping details</h2>
-                                                            <div class="row">
-                                                                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                                    <label for="input-firstname1">First Name <span class="required-f">*</span></label>
-                                                                    <input name="name" id="name" type="text">
-                                                                </div>
-                                                                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                                    <label for="input-lastname1">Last Name <span class="required-f">*</span></label>
-                                                                    <input name="lastname" value="" id="input-lastname1" type="text">
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                                    <label for="input-email1">E-Mail <span class="required-f">*</span></label>
-                                                                    <input name="email" value="" id="input-email1" type="email">
-                                                                </div>
-                                                                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                                    <label for="input-telephone1">Telephone <span class="required-f">*</span></label>
-                                                                    <input name="mobileNumber" id="phoneNumber" type="tel">
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                 <div class="form-group col-md-12 col-lg-12 col-xl-12 required">
-                                                                    <label for="input-address-12">Address <span class="required-f">*</span></label>
-                                                                    <input name="address" id="address" type="text">
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                 <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                                    <label for="input-city1">State <span class="required-f">*</span></label>
-                                                                    <input name="state" value="" id="input-state1" type="text">
-                                                                </div>
-                                                                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                                    <label for="input-city1">City <span class="required-f">*</span></label>
-                                                                    <input name="city" value="" id="input-city1" type="text">
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                                    <label for="input-postcode1">Post Code <span class="required-f">*</span></label>
-                                                                    <input nname="pincode" id="pincode" type="text">
-                                                                </div>
-                                                                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                                    <label for="input-country1">Country <span class="required-f">*</span></label>
-                                                                    <input name="country" value="" id="input-country1" type="text">
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <button type="submit" class="btn mt-1"><span>Add Address</span></button>
-                                                        </fieldset>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-8">
-                                            <h4 class="billing-address">Billing address</h4>
-                                           <table>
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Name</th>
-                                                    <th>Address</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {{#each allAddress}}
-                                                <tr >
-                                                   <td>{{inc @index}}</td>
 
-                                                   <td>{{this.name}}</td>
 
-                                                   <td>{{this.address}}</td>
+    <!-- Body Content -->
+    <div id="page-content" class="mt-5">
+        <!-- Page Title -->
+        <div class="page section-header text-center  pt-5">
+            <div class="page-title">
 
-                                                   <td>
-                                                    <a href="/editAddress/{{this.id}}" class="btn btn-primary" style="height:5px ;">Edit</a>
-                                                    <a href="/deleteUserAddress/{{this.id}}" onclick="return confirm('are you sure to delete this address')" class="btn btn-warning" style="height: 5px;background:red">Delete</a>
-                                                   </td>
-                                                </tr>
-                                                {{/each}}
-                                            </tbody>
-                                           </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Address -->
-
-                                <div id="wallet-details" class="address tab-pane">
-                                    <div class="row">
-                                        
-                                        <div class="col-12 col-sm-12">
-                                            <h4 class="billing-address">Wallet History</h4>
-                                           <table>
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Name</th>
-                                                    <th>Address</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {{!-- {{#each allAddress}}
-                                                <tr >
-                                                   <td>{{inc @index}}</td>
-
-                                                   <td>{{this.name}}</td>
-
-                                                   <td>{{this.address}}</td>
-
-                                                   <td>
-                                                    <a href="/editAddress/{{this.id}}" class="btn btn-primary" style="height:5px ;">Edit</a>
-                                                    <a href="/deleteUserAddress/{{this.id}}" onclick="return confirm('are you sure to delete this address')" class="btn btn-warning" style="height: 5px;background:red">Delete</a>
-                                                   </td>
-                                                </tr>
-                                                {{/each}} --}}
-                                            </tbody>
-                                           </table>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Account Details -->
-                                <div id="account-details" class="tab-pane fade">
-                                    <h3>Account details </h3>
-                                    <div class="account-login-form bg-light-gray padding-20px-all">
-                                        <form action="" id="updateUser">
-                                            <fieldset>
-                                                <p>Already have an account? <a href="login.html"> Log in instead!</a></p>
-                                                <div class="row">
-                                                    <div class="form-group">
-                                                      
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                        <label for="input-firstname">First Name <span class="required-f">*</span></label>
-                                                        <input name="name" value='{{user.name}}' id="input-firstname" class="form-control" type="text">
-                                                    </div>
-                                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                        <label for="input-lastname">Last Name <span class="required-f">*</span></label>
-                                                        <input name="lname" value="{{user.lname}}" id="input-lastname" class="form-control" type="text">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                        <label for="input-email">E-Mail <span class="required-f">*</span></label>
-                                                        <input name="email" value="{{user.email}}" id="input-email" class="form-control" type="email">
-                                                    </div>
-                                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                        <label for="input-telephone">Telephone <span class="required-f">*</span></label>
-                                                        <input name="phoneNumber" value="{{user.phoneNumber}}" id="input-telephone" class="form-control" type="tel">
-                                                    </div>
-                                                </div>
-                                                
-                                              
-                                            </fieldset>
-                                            <button type="submit" class="btn margin-15px-top btn-primary">Save</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- End Account Details -->
-
-                               
-                            </div>
-                            <!-- End Tab panes -->
-                        </div>
-                    </div>
-                </div>
-                <!-- End Body Container -->
             </div>
-            <!-- End Body Content -->
-
-
-
-            <!-- Including Javascript -->
-            <!-- Plugins JS -->
-            <script src="assets/js/plugins.js"></script>
-            <!-- Main JS -->
-            <script src="assets/js/main.js"></script>
-
         </div>
-      <!-- Plugins JS -->
-            <script src="../../Client/UserProfile/assets/js/plugins.js"></script>
-            <!-- Main JS -->
-            <script src="../../Client/UserProfile/assets/js/main.js"></script>
+        <!-- End Page Title -->
+        <div class="bredcrumbWrap bredcrumbWrapPage bredcrumb-style2 text-center">
+            <div class="container breadcrumbs">
+                <a href="/" title="Back to the home page">Home</a><span aria-hidden="true">|</span><span
+                    class="title-bold">My Account</span>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+
+            <div class="row mb-4 mb-lg-5 pb-lg-5">
+                <div class="col-xl-2 col-lg-2 col-md-12 md-margin-20px-bottom">
+                    <!-- Nav tabs -->
+                    <ul class="nav flex-column dashboard-list mb-4 mb-lg-0" role="tablist">
+                        <li><a class="nav-link active" data-bs-toggle="tab" href="#dashboard">Dashboard</a></li>
+                        <li><a class="nav-link" href="/ViewOrders">Orders</a></li>
+                        <li><a class="nav-link" data-bs-toggle="tab" href="#address">Addresses</a></li>
+                        <li><a class="nav-link" data-bs-toggle="tab" href="#account-details">Account details</a></li>
+                        <li><a class="nav-link" data-bs-toggle="tab" href="#wallet-details">Wallet details</a></li>
+                        <li><a class="nav-link" href="/userLogout">logout</a></li>
+                    </ul>
+                    <!-- End Nav tabs -->
+                </div>
+
+                <div class="col-xs-10 col-lg-10 col-md-12">
+                    <!-- Tab panes -->
+                    <div class="tab-content dashboard-content padding-30px-all md-padding-15px-all" style="">
+                        <!-- Dashboard -->
+                        <div id="dashboard" class="tab-pane fade active show">
+                            <h3>Dashboard </h3>
+
+                            <div class="row user-profile mt-4">
+                                <div class="col-12 col-lg-6">
+                                    <div class="profile-img">
+
+                                        <div class="detail ms-3">
+                                            <h5 class="mb-1">{{user.name}}. <span>{{user.lname}}</span></h5>
+                                            <h6>User Name: <strong>{{user.name}}</strong></h6>
+                                            <h6>Email: <strong>{{user.email}}</strong></h6>
+                                            <h6>Mobile No: <strong>{{user.phoneNumber}}</strong></h6>
+                                        </div>
+                                        <div class="lbl">SILVER USER</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <ul class="profile-order mt-3 mt-lg-0">
+                                        {{#if user.wallet}}
+                                        <li>
+                                            <h3 class="mb-1">₹ {{user.wallet}}</h3>
+                                            Wallet Balance
+                                        </li>
+                                        {{else}}
+                                        <li>
+                                            <h3 class="mb-1">₹ 0 </h3>
+                                            Wallet Balance
+                                        </li>
+                                        {{/if}}
+
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- End Dashboard -->
+
+
+
+
+                        <!-- Address -->
+                        <div id="address" class="address tab-pane">
+                            <h3>Addresses</h3>
+                            <p class="xs-fon-13 margin-10px-bottom">The following addresses will be used on the checkout
+                                page by default.</p>
+                            <div class="row">
+                                <div class="col-12 col-sm-4">
+                                    <h4 class="billing-address">Shipping address</h4>
+
+                                    <div class="accordion add-address mt-3" id="address1">
+                                        <button class="collapsed btn btn--small" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#shipping" aria-expanded="false"
+                                            aria-controls="shipping">Add Address</button>
+                                        <div id="shipping" class="accordion-collapse collapse"
+                                            data-bs-parent="#address">
+                                            <form class="address-from mt-3" id="addShippingAddress"
+                                                action="/addUserAddress" method="post">
+                                                <fieldset>
+                                                    <h2 class="login-title mb-3">Shipping details</h2>
+                                                    <div class="row">
+                                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                                            <label for="input-firstname1">First Name <span
+                                                                    class="required-f">*</span></label>
+                                                            <input name="name" id="name" type="text">
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                                            <label for="input-lastname1">Last Name <span
+                                                                    class="required-f">*</span></label>
+                                                            <input name="lastname" value="" id="input-lastname1"
+                                                                type="text">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                                            <label for="input-email1">E-Mail <span
+                                                                    class="required-f">*</span></label>
+                                                            <input name="email" value="" id="input-email1" type="email">
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                                            <label for="input-telephone1">Telephone <span
+                                                                    class="required-f">*</span></label>
+                                                            <input name="mobileNumber" id="phoneNumber" type="tel">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-md-12 col-lg-12 col-xl-12 required">
+                                                            <label for="input-address-12">Address <span
+                                                                    class="required-f">*</span></label>
+                                                            <input name="address" id="address" type="text">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                                            <label for="input-city1">State <span
+                                                                    class="required-f">*</span></label>
+                                                            <input name="state" value="" id="input-state1" type="text">
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                                            <label for="input-city1">City <span
+                                                                    class="required-f">*</span></label>
+                                                            <input name="city" value="" id="input-city1" type="text">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                                            <label for="input-postcode1">Post Code <span
+                                                                    class="required-f">*</span></label>
+                                                            <input nname="pincode" id="pincode" type="text">
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                                            <label for="input-country1">Country <span
+                                                                    class="required-f">*</span></label>
+                                                            <input name="country" value="" id="input-country1"
+                                                                type="text">
+                                                        </div>
+                                                    </div>
+
+                                                    <button type="submit" class="btn mt-1"><span>Add
+                                                            Address</span></button>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-8">
+                                    <h4 class="billing-address">Billing address</h4>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Name</th>
+                                                <th>Address</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each allAddress}}
+                                            <tr>
+                                                <td>{{inc @index}}</td>
+
+                                                <td>{{this.name}}</td>
+
+                                                <td>{{this.address}}</td>
+
+                                                <td>
+                                                    <a href="/editAddress/{{this.id}}" class="btn btn-primary"
+                                                        style="height:5px ;">Edit</a>
+                                                    <a href="/deleteUserAddress/{{this.id}}"
+                                                        onclick="return confirm('are you sure to delete this address')"
+                                                        class="btn btn-warning"
+                                                        style="height: 5px;background:red">Delete</a>
+                                                </td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Address -->
+
+                        <div id="wallet-details" class="address tab-pane">
+                            <div class="row">
+
+                                <div class="col-12 col-sm-12">
+                                    <h4 class="billing-address">Wallet History</h4>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Name</th>
+                                                <th>Address</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{!-- {{#each allAddress}}
+                                            <tr>
+                                                <td>{{inc @index}}</td>
+
+                                                <td>{{this.name}}</td>
+
+                                                <td>{{this.address}}</td>
+
+                                                <td>
+                                                    <a href="/editAddress/{{this.id}}" class="btn btn-primary"
+                                                        style="height:5px ;">Edit</a>
+                                                    <a href="/deleteUserAddress/{{this.id}}"
+                                                        onclick="return confirm('are you sure to delete this address')"
+                                                        class="btn btn-warning"
+                                                        style="height: 5px;background:red">Delete</a>
+                                                </td>
+                                            </tr>
+                                            {{/each}} --}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Account Details -->
+                        <div id="account-details" class="tab-pane fade">
+                            <h3>Account details </h3>
+                            <div class="account-login-form bg-light-gray padding-20px-all">
+                                <form action="" id="updateUser">
+                                    <fieldset>
+                                        <p>Already have an account? <a href="login.html"> Log in instead!</a></p>
+                                        <div class="row">
+                                            <div class="form-group">
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                                <label for="input-firstname">First Name <span
+                                                        class="required-f">*</span></label>
+                                                <input name="name" value='{{user.name}}' id="input-firstname"
+                                                    class="form-control" type="text">
+                                            </div>
+                                            <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                                <label for="input-lastname">Last Name <span
+                                                        class="required-f">*</span></label>
+                                                <input name="lname" value="{{user.lname}}" id="input-lastname"
+                                                    class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                                <label for="input-email">E-Mail <span
+                                                        class="required-f">*</span></label>
+                                                <input name="email" value="{{user.email}}" id="input-email"
+                                                    class="form-control" type="email">
+                                            </div>
+                                            <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                                <label for="input-telephone">Telephone <span
+                                                        class="required-f">*</span></label>
+                                                <input name="phoneNumber" value="{{user.phoneNumber}}"
+                                                    id="input-telephone" class="form-control" type="tel">
+                                            </div>
+                                        </div>
+
+
+                                    </fieldset>
+                                    <button type="submit" class="btn margin-15px-top btn-primary">Save</button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- End Account Details -->
+
+
+                    </div>
+                    <!-- End Tab panes -->
+                </div>
+            </div>
+        </div>
+        <!-- End Body Container -->
+    </div>
+    <!-- End Body Content -->
+
+
+
+    <!-- Including Javascript -->
+    <!-- Plugins JS -->
+    <script src="assets/js/plugins.js"></script>
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+
+    </div>
+    <!-- Plugins JS -->
+    <script src="../../Client/UserProfile/assets/js/plugins.js"></script>
+    <!-- Main JS -->
+    <script src="../../Client/UserProfile/assets/js/main.js"></script>
 
 </body>
