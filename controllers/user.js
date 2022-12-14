@@ -449,7 +449,7 @@ postconfirmOTP:(req,res)=>{
  getPaymentFailed:async(req,res)=>{
     // if(req.session.user.orderId){
        await userHelper.deletePendingOrder(req.params.orderId).then(()=>{
-        res.render('user/paymentFailed');
+        res.render('404',{layout:null});
        })
    
    
