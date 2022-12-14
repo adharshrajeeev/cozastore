@@ -453,9 +453,12 @@ postconfirmOTP:(req,res)=>{
 
  getPaymentFailed:async(req,res)=>{
     // if(req.session.user.orderId){
-        
-       await userHelper.deletePendingOrder(req.params.orderId).then(()=>{
-        res.render('404',{layout:null});
+        let user=req.session.user;
+       await userHelper.deletePendingOrder(req.params.orderId).then(async()=>{
+        let cartCount=await userHelper.getCartCount(req.session.user._id) 
+        let wishlistCount=await userHelper.getWishlistCount(req.session.user._id);
+         let categories=await userHelper.getAllcategories()
+              res.render('user/paymentFailed',{cartCount,wishlistCount,user,categories})
        })
    
    
