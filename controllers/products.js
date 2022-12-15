@@ -107,6 +107,17 @@ adminDeleteProduct:(req,res)=>{
                 let image=req.files.image;
                 image.mv('./public/product-images/'+id+'.jpg')   
            
+            }else if(req.files?.image2){
+                let image2=req.files.image2;
+                image2.mv('./public/product-images2/'+id+'.jpg')   
+            }
+            else if(req.files?.image3){
+                let image3=req.files.image3;
+                image3.mv('./public/product-images3/'+id+'.jpg')   
+            }
+            else if(req.files?.image4){
+                let image4=req.files.image2;
+                image4.mv('./public/product-images4/'+id+'.jpg')   
             }
         })
     }
