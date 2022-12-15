@@ -33,8 +33,8 @@
             <td>{{this.offer}}%</td>
             <td>{{this.ExpiryDate}}</td>
             <td>
-                 <a href="/admin/edit-banner?id={{this._id}}" class="btn btn-primary">EDIT</a>
-                 <a href="/admin/delete-banner/{{this._id}}" class="btn btn-danger" onclick="return confirm('ARE YOU SURE TO DELETE  {{this.name}}')" >DELETE</a>
+               
+                 <button  class="btn btn-danger" onclick="deleteOffer('{{this._id}}')" >DELETE</button>
             </td>
 
           </tr>
@@ -83,6 +83,8 @@
 
   <script>
    
+ 
+
   </script>
 
 </body>

@@ -44,6 +44,9 @@ module.exports={
     adminAddProductIn:(req,res)=>{                                                               
         // console.log(req.body);
         // console.log(req.files.image);
+      
+        req.body.price=parseInt(req.body.price)
+        
         productHelper.addProduct(req.body,(id)=>{
             let image=req.files.image
             let image2=req.files.image2
@@ -95,6 +98,7 @@ adminDeleteProduct:(req,res)=>{
 
 
     adminEditProductIn:(req,res)=>{
+        req.body.price=parseInt(req.body.price);
         productHelper.updateProduct(req.params.id,req.body).then(()=>{
             console.log(req.params.id);
             let id=req.params.id

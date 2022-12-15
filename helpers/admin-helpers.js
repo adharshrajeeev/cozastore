@@ -556,12 +556,12 @@ module.exports={
   /* -------------------------------------------------------------------------- */
 
 
-  getDailySalesReport:(day,todate)=>{
+  getDailySalesReport:(Fromdate,todate)=>{
     return new Promise(async(resolve,reject)=>{
       let dailyReport=await db.get().collection(collection.ORDER_COLLECTION).aggregate([
         
         {
-          $match: { orderDate: {$gte:day,$lte:todate}} 
+          $match: { orderDate: {$gte:Fromdate,$lte:todate}} 
         },
         
        {
@@ -585,7 +585,7 @@ module.exports={
         }
        },
       ]).toArray();
-     console.log(dailyReport,"this is ")
+    
       resolve(dailyReport)
     })
   },
@@ -742,6 +742,44 @@ module.exports={
     })
 
     
+  },
+
+  /* -------------------------------------------------------------------------- */
+  /*                    DELETE CATGORY OFFER                                    */
+  /* -------------------------------------------------------------------------- */
+
+
+
+  deleteCategoryOffer:({categoryId})=>{
+    return new Promise(async(resolve,reject)=>{
+      let category=await db.get().collection(collection.CATEGORY_COLLECTION).findOne({_id:ObjectId(categoryId)});
+      db.get().collection(collection.CATEGORY_COLLECTION).updateOne({_id:ObjectId(categoryId)},
+      {
+        $unset:{
+          ExpiryDate:category.ExpiryDate,
+          offer:category.offer,
+          offerApply:category.offerApply
+        }
+      }).then(async()=>{
+        let product=await db.get().collection(collection.PRODUCT_COLLECTION).find({category:category.category}).toArray();
+        db.get().collection(collection.PRODUCT_COLLECTION).updateMany({category:category.category},
+          {
+            $unset:{
+              categoryDiscount:product.categoryDiscount,
+              discountPercentage:product.discountPercentage,
+              price:product.price
+            }
+          }).then(()=>{
+            db.get().collection(collection.PRODUCT_COLLECTION).updateMany({category:category.category},
+              {
+                $rename:{
+                  originalPrice:'price'
+                }
+              })
+              resolve();
+          })
+      })
+    })
   },
 
 

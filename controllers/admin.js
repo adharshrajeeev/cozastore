@@ -362,7 +362,7 @@ deleteCategory:(req,res)=>{
  },
 
  /*----------------------------------------------------------------- --*/
- /*              DAILY SALES REPORT POST                                     */
+ /*              DAILY SALES REPORT POST                               */
  /*-------------------------------------------------------------------*/
 
 
@@ -429,6 +429,21 @@ deleteCategory:(req,res)=>{
    })
  },
 
+
+ 
+ /*----------------------------------------------------------------- --*/
+ /*             ADMIN DELETE CATEGORY OFFER                            */
+ /*-------------------------------------------------------------------*/
+
+
+
+ adminDeleteOffer:(req,res)=>{
+   adminHelper.deleteCategoryOffer(req.body).then(()=>{
+      res.json({status:true})
+   }).catch((err)=>{
+      res.status(500).res.render('404',{layout:null})
+   })
+ },
 
  /*----------------------------------------------------------------- --*/
  /*             ADMIN DELTE COUPON                                    */

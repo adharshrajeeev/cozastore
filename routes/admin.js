@@ -4,7 +4,7 @@ const {adminSignup,adminLogin,userList,getCategory,addCategory,addCategoryIn,edi
     logout,adminLoggedIn,blockUser,UnBlockUser,ViewAllUserOrders,adminProductWiseOrders,setPorductOrderStatus,
     viewAdminBanners,addBanners,postBannerIn,geteditBannerPage,postEditBannerDetails,showCouponsPage,addCoupons,postCoupons,
     getAdminSalesReport,getAdminDailySalesReport,getAdminMonthlySalesReport,getAdminYearlySalesReport,getOffersList,
-    addCatgeoryOffer,admindeleteCoupon,getEditCouponPage,updateCoupon}=require('../controllers/admin')
+    addCatgeoryOffer,admindeleteCoupon,getEditCouponPage,updateCoupon,adminDeleteOffer}=require('../controllers/admin')
 
 
 router.get('/',adminSignup);
@@ -48,6 +48,7 @@ router.post('/admin-yearlySales',getAdminYearlySalesReport)
 
 router.get('/viewOffers',getOffersList)
 router.post('/admin-addCategoryOffer',addCatgeoryOffer)
+router.post('/deleteOffer',adminDeleteOffer)
 
 module.exports = router;
     

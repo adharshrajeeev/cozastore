@@ -31,3 +31,37 @@ $(document).ready(function () {
   });
 
 
+  function deleteOffer(categoryId){
+    swal({
+          title: "Are you sure?",
+          text: "It will also delete the products of this category",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+               $.ajax({
+                        url:'/admin/deleteOffer',
+                          data:{
+                            categoryId:categoryId
+                          },
+                        type:'POST',
+                        success:(response)=>{
+                            if(response.status){
+                                swal("Successfully deleted", {
+                                    icon: "success",
+                                  });
+                                                  
+                                    location.reload()
+                            }
+                             
+                            
+                        }
+                    })
+              
+            } else {
+              swal("Your Offer safe!");
+            }
+          });
+   }
