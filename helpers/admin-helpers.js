@@ -289,7 +289,7 @@ module.exports={
           $limit:5
         }
       ]).toArray()
-      resolve(salesData[0].totalAmount)
+      resolve(salesData[0]?.totalAmount)
     })
   },
 
@@ -322,7 +322,7 @@ module.exports={
           $limit:5
         }
       ]).toArray()
-      resolve(salesData[0].totalAmount)
+      resolve(salesData[0]?.totalAmount)
     })
   },
 

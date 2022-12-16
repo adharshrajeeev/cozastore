@@ -6,7 +6,7 @@ const collections = require('../config/collections');
 const moment=require('moment');
 const { response } = require('express');
 const adminId="admin@gmail.com";
-const passwordId="1234"
+const passwordId="12345"
 
 module.exports={
 
