@@ -2,9 +2,7 @@
 var adminHelper=require('../helpers/admin-helpers')
 
 const user = require('./user');
-const collections = require('../config/collections');
-const moment=require('moment');
-const { response } = require('express');
+
 const adminId="admin@gmail.com";
 const passwordId="12345"
 

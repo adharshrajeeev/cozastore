@@ -1221,10 +1221,13 @@ module.exports={
         $set:{
           "products.$.status":orderDetails.status
         }
-      }).then(async(response)=>{
-        let value=parseInt(orderDetails.productPrice);
+      }).then(async()=>{
+        let value2=parseInt(orderDetails.productPrice);
         let quantity=parseInt(orderDetails.productQuantity);
-        let amount=parseInt(value*quantity)+user.wallet;
+        let amount=parseInt(value2*quantity);
+        let wallet=parseInt(user.wallet)
+         amount=amount+wallet;
+          console.log("the returned amount ",amount);
 
         let data=await db.get().collection(collection.USER_COLLECTION).updateOne({_id:ObjectId(user._id)},{
           $set:{
@@ -1232,7 +1235,7 @@ module.exports={
           }
         })
       })
-      
+    
       resolve({ status: true })
     })
   },
