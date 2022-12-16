@@ -1222,8 +1222,8 @@ module.exports={
           "products.$.status":orderDetails.status
         }
       }).then(async(response)=>{
-        let value=orderDetails.productPrice;
-        let quantity=orderDetails.productQuantity;
+        let value=parseInt(orderDetails.productPrice);
+        let quantity=parseInt(orderDetails.productQuantity);
         let amount=parseInt(value*quantity)+user.wallet;
 
         let data=await db.get().collection(collection.USER_COLLECTION).updateOne({_id:ObjectId(user._id)},{
