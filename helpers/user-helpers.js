@@ -999,15 +999,16 @@ module.exports={
   /* -------------------------------------------------------------------------- */
   
   changePaymentStatus:(orderId)=>{
-    return new Promise((resolve,reject)=>{
-      db.get().collection(collection.ORDER_COLLECTION)
-      .updateOne({_id:ObjectId(orderId),"products.status":'Pending'},
+    return new Promise(async(resolve,reject)=>{
+      let order=await db.get().collection(collection.ORDER_COLLECTION).findOne({_id:ObjectId(orderId)})
+      db.get().collection(collection.ORDER_COLLECTION).updateOne({_id:ObjectId(orderId),"products.status":'Pending'},
       {
         $set:{
           'products.$[].status':'Placed'
         }
       }
       ).then(()=>{
+        db.get().collection(collection.CART_COLLECTION).deleteOne({user:ObjectId(order.userId)})
           resolve()
       })
     })

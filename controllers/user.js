@@ -770,19 +770,6 @@ postSearchProducts:async(req,res)=>{
 
 
 
-paypalPaymentError:async(req,res)=>{
-    let user=req.session.user;
-    if(user){
-       let cartCount=await userHelper.getCartCount(req.session.user._id) 
-           let wishlistCount=await userHelper.getWishlistCount(req.session.user._id);
-            let categories=await userHelper.getAllcategories()
-        res.render('user/paymentFailed',{cartCount,wishlistCount,user,categories})
-    }else
-    {
-        res.redirect('/')
-    }
-   
-},
 
 
 //--------------------------------------RETURN ORDERED PRODUCTS---------------------------------

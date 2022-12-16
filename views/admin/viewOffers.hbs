@@ -28,6 +28,7 @@
         <tbody>
           {{#each offersList}}
           <tr>
+            {{#if this.offer}}
             <td>{{inc @index}}</td>
             <td>{{this.category}}</td>
             <td>{{this.offer}}%</td>
@@ -36,7 +37,9 @@
                
                  <button  class="btn btn-danger" onclick="deleteOffer('{{this._id}}')" >DELETE</button>
             </td>
-
+              {{else}}
+            
+              {{/if}}
           </tr>
           {{/each}}
           <br>
