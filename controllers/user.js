@@ -750,7 +750,9 @@ postSearchProducts:async(req,res)=>{
             userHelper.searchProducts(req.body.search).then((products)=>{
                 res.render('user/searchedProducts',{products,cartCount,wishlistCount,user,categories})
             }).catch((err)=>{
-                console.log(err);
+                if(err.productNotFound){
+                    res.render('user/searchedProducts',{cartCount,wishlistCount,user,categories,err})
+                }
             })
         }
         else{
@@ -758,7 +760,9 @@ postSearchProducts:async(req,res)=>{
             userHelper.searchProducts(req.body.search).then((products)=>{
                 res.render('user/searchedProducts',{products,categories})
             }).catch((err)=>{
-                console.log(err);
+                if(err.productNotFound){
+                    res.render('user/searchedProducts',{categories,err})
+                }
             })
         }
       
