@@ -84,52 +84,52 @@ module.exports={
 
     //----------------------------------------OTP SECTION-------------------------------------------
    
-    doOTP:(userData)=>{
-      let response={}
-       return new Promise(async(resolve,reject)=>{
-        let user=await db.get().collection(collection.USER_COLLECTION).findOne({phoneNumber:userData.phone})
-        if(user){
+    // doOTP:(userData)=>{
+    //   let response={}
+    //    return new Promise(async(resolve,reject)=>{
+    //     let user=await db.get().collection(collection.USER_COLLECTION).findOne({phoneNumber:userData.phone})
+    //     if(user){
            
-          response.status=true
-          response.user=user
-          console.log("11111111111111")
-          Client.verify.services(process.env.serviceId)
-          .verifications
-          .create({ to: `+91${userData.phone}`, channel: 'sms' })
-          .then((data)=>{
+    //       response.status=true
+    //       response.user=user
+    //       console.log("11111111111111")
+    //       Client.verify.services(process.env.serviceId)
+    //       .verifications
+    //       .create({ to: `+91${userData.phone}`, channel: 'sms' })
+    //       .then((data)=>{
             
            
-          });
-          resolve(response)
-        }
-        else{
-          response.status=false;
-          resolve(response)
-        }
-       })
+    //       });
+    //       resolve(response)
+    //     }
+    //     else{
+    //       response.status=false;
+    //       resolve(response)
+    //     }
+    //    })
 
-    },
+    // },
 
-    doOTPConfirm:(confirmotp,userData)=>{
-       return new Promise((resolve,reject)=>{
+    // doOTPConfirm:(confirmotp,userData)=>{
+    //    return new Promise((resolve,reject)=>{
         
-        console.log(userData)
-        Client.verify.services(process.env.serviceId)
-        .verificationChecks
-        .create({
-          to:`+91${userData.phoneNumber}`,
-          code:confirmotp.phone
-        })
-        .then((data)=>{
-          if(data.status=='approved'){
+    //     console.log(userData)
+    //     Client.verify.services(process.env.serviceId)
+    //     .verificationChecks
+    //     .create({
+    //       to:`+91${userData.phoneNumber}`,
+    //       code:confirmotp.phone
+    //     })
+    //     .then((data)=>{
+    //       if(data.status=='approved'){
            
-            resolve({status:true})
-          }else{
-            resolve({status:false})
-          }
-        })
-       })
-    },
+    //         resolve({status:true})
+    //       }else{
+    //         resolve({status:false})
+    //       }
+    //     })
+    //    })
+    // },
 
   /* -------------------------------------------------------------------------- */
   /*                         GET USER DETAILS                                   */

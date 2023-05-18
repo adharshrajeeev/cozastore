@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const { userhomePage,getLogin,getSignup,postSignup,ChangeProductQuantity,postLogin,getLogout,getProducts,
-       getProductDetails,getotpPage,getcartDetails,addToCart,getCheckoutPage,PlaceOrder,
-       sucessOrder,postOtp,getconfirmOTP,postconfirmOTP,getOrders,getUserProfile,
+       getProductDetails,getcartDetails,addToCart,getCheckoutPage,PlaceOrder,
+       sucessOrder,getOrders,getUserProfile,
        userCancelOrder,removeProductFromCart,viewOrderedProducts,getCategoryWise,paymentVerify,postUserProfile,
        userCancelProduct,addUserAddress,setOrderedProductStatus,addDeliveryAaddress,editAddress,
        postEditUserAddress,deleteUserAddress,postCouponApply,postCouponRemove,displayWishList,addToWishList,removeProductFromWishlist,
@@ -19,13 +19,13 @@ router.get('/products',getProducts)
 router.get('/getProductDetail/',getProductDetails)
 
 router.get('/viewCategoryWise/',getCategoryWise)
-router.get('/OtpPage',getotpPage)
+// router.get('/OtpPage',getotpPage)
 
  
-router.post('/otp', postOtp)
-router.get('/confirmOtp',getconfirmOTP)
+// router.post('/otp', postOtp)
+// router.get('/confirmOtp',getconfirmOTP)
 
-router.post('/confirmotp',postconfirmOTP)
+// router.post('/confirmotp',postconfirmOTP)
 
 router.get('/cart',getcartDetails)
 router.get('/addToCart/:id',addToCart)

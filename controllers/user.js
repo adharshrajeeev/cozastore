@@ -181,58 +181,58 @@ module.exports={
 
 
 
- //----------------------------------OTP LOGIN-------------------------------------------//
- getotpPage:(req,res)=>{
-    res.render('user/userOtp',{layout:null});
- },
+//  //----------------------------------OTP LOGIN-------------------------------------------//
+//  getotpPage:(req,res)=>{
+//     res.render('user/userOtp',{layout:null});
+//  },
 
 
-let: signupData=0,
+// let: signupData=0,
 
 
-//----------------------------------POST OTP---------------------------------------------------//
+// //----------------------------------POST OTP---------------------------------------------------//
 
-postOtp:(req,res)=>{
-    userHelper.doOTP(req.body).then((response)=>{
-        if(response.status){
-            signupData=response.user;
-             console.log(signupData)
+// postOtp:(req,res)=>{
+//     userHelper.doOTP(req.body).then((response)=>{
+//         if(response.status){
+//             signupData=response.user;
+//              console.log(signupData)
              
-            res.redirect('/confirmOtp')
+//             res.redirect('/confirmOtp')
             
-        }
-        else{
-            res.redirect('/OtpPage')
-        }
-    })
-   console.log(req.body);
-},
+//         }
+//         else{
+//             res.redirect('/OtpPage')
+//         }
+//     })
+//    console.log(req.body);
+// },
 
-//----------------------------------DISPLAY CONFIRM OTP PAGE----------------------------------------
+// //----------------------------------DISPLAY CONFIRM OTP PAGE----------------------------------------
 
-getconfirmOTP:(req,res)=>{
-    res.render('user/userConfirmOtp',{layout:null})
-},
+// getconfirmOTP:(req,res)=>{
+//     res.render('user/userConfirmOtp',{layout:null})
+// },
 
 
-//-----------------------------------POST CONFIRM OTP----------------------------------------------
+// //-----------------------------------POST CONFIRM OTP----------------------------------------------
 
-postconfirmOTP:(req,res)=>{
-    console.log(req.body)
-  userHelper.doOTPConfirm(req.body,signupData).then((response)=>{
-    if(response.status){
+// postconfirmOTP:(req,res)=>{
+//     console.log(req.body)
+//   userHelper.doOTPConfirm(req.body,signupData).then((response)=>{
+//     if(response.status){
         
         
-       req.session.loggedIn=true;
-       req.session.user=signupData;
+//        req.session.loggedIn=true;
+//        req.session.user=signupData;
 
    
-        res.redirect('/')
-    }else{
-        res.redirect('/confirmOtp')
-    }
-  })
-},
+//         res.redirect('/')
+//     }else{
+//         res.redirect('/confirmOtp')
+//     }
+//   })
+// },
 
 
  //--------------------------------------GET CART DETAILS------------------------------------//
