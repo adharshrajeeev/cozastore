@@ -150,7 +150,7 @@ module.exports={
 addCategoryIn:(req,res)=>{
    adminHelper.addCategory(req.body).then((id)=>{
     let name=id;
-      req.files?.image.mv('./public/category-images/'+name+'.jpg',(err,done)=>{
+      req.files.image?.mv('./public/category-images/'+name+'.jpg',(err,done)=>{
          if(!err){
             res.redirect('/admin/addCategories')
          }else{
