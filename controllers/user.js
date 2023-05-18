@@ -22,34 +22,38 @@ module.exports={
 //---------------------------HOME PAGE DISPLAY------------------------------//
 
     userhomePage:async(req,res)=>{
-      
-        let user=req.session.user
-        req.session.returnTo=req.originalUrl
-        let cartCount=null;
-        let wishlistCount=null;
-        if(req.session.user){
-         cartCount=await userHelper.getCartCount(req.session.user._id)
-         wishlistCount=await userHelper.getWishlistCount(req.session.user._id)
-         console.log(wishlistCount,"helll yea")
-        }
-       
-       
-          
-       
-      
-        let categories=await userHelper.getAllcategories()
-        userHelper.getAllBanners().then((banners)=>{
-            UserDetailsHelper.getAllProducts().then((products)=>{
-                res.render('user/index',{user,products,cartCount,categories,banners,wishlistCount});
-              }).catch((err)=>{
-                console.log(err,"Product Error");
-                res.render('404',{layout:null})
-            })
-             
-        }).catch((err)=>{
-            console.log(err,"Banner Error");
-            res.render('404',{layout:null})
-        })
+      try{
+
+          let user=req.session.user
+          req.session.returnTo=req.originalUrl
+          let cartCount=null;
+          let wishlistCount=null;
+          if(req.session.user){
+           cartCount=await userHelper.getCartCount(req.session.user._id)
+           wishlistCount=await userHelper.getWishlistCount(req.session.user._id)
+           console.log(wishlistCount,"helll yea")
+          }
+         
+         
+            
+         
+        
+          let categories=await userHelper.getAllcategories()
+          userHelper.getAllBanners().then((banners)=>{
+              UserDetailsHelper.getAllProducts().then((products)=>{
+                  res.render('user/index',{user,products,cartCount,categories,banners,wishlistCount});
+                }).catch((err)=>{
+                  console.log(err,"Product Error");
+                  res.render('404',{layout:null})
+              })
+               
+          }).catch((err)=>{
+              console.log(err,"Banner Error");
+              res.render('404',{layout:null})
+          })
+      }catch(err){
+        console.log(err)
+      }
        
                               
     },

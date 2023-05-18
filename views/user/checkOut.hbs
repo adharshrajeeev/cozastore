@@ -270,7 +270,7 @@
                 {{#each address}}
                 <div class="form-check card-body ">
                   <label class="form-check-label" for="flexRadioDefault1" data-bs-toggle="collapse"> </label>
-                  <input class="form-check-input" type="radio" name="payment-address" id="addressInput" value="{{this._id}}" required />
+                 <input class="form-check-input" type="radio" name="payment-address" id="addressInput" value="{{this._id}}" required />
                   <span class="text-dark"><strong>Address: {{inc @index}}</strong> </span>
                   <br><span>
                     {{this.name}} <br>
@@ -374,8 +374,8 @@
 
           </div>
         </div>
-        <button type="submit " class="btn btn-secondary mt-3 btn-lg btn-block placeorder"
-          style="background-color:rgb(24, 22, 22) ;" onclick="return validateChekout()" > Place Order</button>
+       <button type="submit" class="btn btn-secondary mt-3 btn-lg btn-block placeorder" style="background-color:rgb(24, 22, 22);"
+        disabled onclick="return validateCheckout()">Place Order</button>
       </div>
     </div>
     </form>
