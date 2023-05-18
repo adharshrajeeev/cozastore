@@ -53,7 +53,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 db.connect((err)=>{
   if(err){
-    console.log("Connection Error"+err);
+    console.log("Connection Error",err);
   }else{
     console.log("DATABSE CONNECTED SUCCESFULLY AT PORT 27017");
   }
@@ -95,5 +95,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+app.listen(4000,()=>{
+  console.log(`SERVER STARTED AT PORT ${process.env.PORT}`)
+})
 
 module.exports = app;
