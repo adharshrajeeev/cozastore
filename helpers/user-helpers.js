@@ -3,7 +3,7 @@ var collection=require('../config/collections');
 const bcrypt=require('bcrypt');
 var ObjectId=require('mongodb').ObjectId
 require('dotenv').config()
-const Client=require('twilio')(process.env.accoundSid,process.env.authToken)
+// const Client=require('twilio')(process.env.accoundSid,process.env.authToken)
 const moment = require("moment")
 
 const Razorpay=require('razorpay');
