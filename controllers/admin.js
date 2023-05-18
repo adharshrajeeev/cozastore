@@ -269,7 +269,7 @@ deleteCategory:(req,res)=>{
  postBannerIn:(req,res)=>{
    adminHelper.addBannersIn(req.body).then((id)=>{
       let name=id;
-        req.files?.image.mv('./public/banner-images/'+name+'.jpg',(err,done)=>{
+        req.files.image.mv('./public/banner-images/'+name+'.jpg',(err,done)=>{
            if(!err){
               res.redirect('/admin/addBanners')
            }else{
@@ -303,8 +303,8 @@ deleteCategory:(req,res)=>{
       adminHelper.updateBanner(req.params.id,req.body).then(()=>{
          let id=req.params.id
          res.redirect('/admin/viewBanners')
-         if(req.files?.image){
-            let image=req.files?.image;
+         if(req.files.image){
+            let image=req.files.image;
             image.mv('./public/banner-images/'+id+'.jpg')  
          }
       })
