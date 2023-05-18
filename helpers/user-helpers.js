@@ -699,7 +699,7 @@ module.exports={
            }
          
         ]).toArray()
-        resolve(total[0]?.total)
+        resolve(total[0].total)
       })
 
      },
