@@ -66,7 +66,7 @@
 						</div>
 						{{#if user}}
 						<a href="/cart">
-							<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart icon-header-noti"
+							<div id="cartCount" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart icon-header-noti"
 								data-notify="{{cartCount}}">
 								<i class="zmdi zmdi-shopping-cart"></i>
 							</div>
@@ -105,9 +105,9 @@
 				</div>
 				{{#if user}}
 				<a href="/cart">
-					<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart icon-header-noti"
+					<div id="cartCount" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart icon-header-noti"
 						data-notify="{{cartCount}}">
-						<i class="zmdi zmdi-shopping-cart"></i>
+						<i class="zmdi zmdi-shopping-cart">1</i>
 					</div>
 				</a>
 				<a href="/wishList"

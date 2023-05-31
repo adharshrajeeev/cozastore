@@ -1,5 +1,4 @@
 function changeQuantity(cartId,productId,userId,count){
-    console.log("pooiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
     event.preventDefault();
     let quantity=parseInt(document.getElementById(productId).innerHTML)
     count=parseInt(count);
@@ -24,7 +23,7 @@ function changeQuantity(cartId,productId,userId,count){
                     button: "OK",
                   });
                setTimeout(()=>{
-                location.href='https://cozastore.gq/cart';
+                location.href='http://localhost:4000/cart';
                },1000) 
             }
             else{

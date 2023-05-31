@@ -317,7 +317,7 @@ module.exports={
 
  removeProductFrmCart:(req,res)=>{
     let productId=req.params.id
-    console.log(productId)
+    console.log(productId) 
     userHelper.deleteCartProduct(productId).then((response)=>{
         res.redirect('/cart')
     })
@@ -327,18 +327,23 @@ module.exports={
  //---------------------------------------PROCEED TO CHECKOUT PGE----------------------------------//
 
  getCheckoutPage:async(req,res)=>{
-    let user=req.session.user;
-    if(user){
-        let address=await userHelper.getShippingAddress(req.session.user._id)
-        let cartCount=await userHelper.getCartCount(req.session.user._id)
-        let categories=await userHelper.getAllcategories()
-         let  wishlistCount=await userHelper.getWishlistCount(req.session.user._id)
-        let total=await userHelper.getTotalAmount(req.session.user._id);
+    try{
+        let user=req.session.user;
 
-        res.render('user/checkOut',{user,cartCount,total,address,wishlistCount,categories})
-    }else
-    {
-        res.redirect('/')
+        if(user){
+            let address=await userHelper.getShippingAddress(req.session.user._id)
+            let cartCount=await userHelper.getCartCount(req.session.user._id)
+            let categories=await userHelper.getAllcategories()
+             let  wishlistCount=await userHelper.getWishlistCount(req.session.user._id)
+            let total=await userHelper.getTotalAmount(req.session.user._id);
+            if(!cartCount || cartCount==0) return res.redirect('/')
+            res.render('user/checkOut',{user,cartCount,total,address,wishlistCount,categories})
+        }else
+        {
+            res.redirect('/')
+        }
+    }catch(err){
+        console.log(err)
     }
     
  },
@@ -351,12 +356,11 @@ module.exports={
     let products=await userHelper.getCartProductList(req.body.userId)
     let totalPrice=await userHelper.getTotalAmount(req.body.userId)
     let productPrice=await userHelper.getProductPrice(req.body.userId)
-    console.log(productPrice,"heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeey");
+ 
     
     let verifyCoupon=await userHelper.couponVerify(user._id);
     
-    console.log(verifyCoupon.couponId,'123333333333333333');
-    console.log(req.body.couponcode,"3255555555555555555555")
+   
 
     if(verifyCoupon.couponId == req.body.couponcode){
 
@@ -382,8 +386,8 @@ module.exports={
                         "payment_method": "paypal"
                     },
                     "redirect_urls": {
-                        "return_url": "https://cozastore.gq/orderSucess",
-                        "cancel_url": "https://cozastore.gq/payment-failed/"+orderId,
+                        "return_url": "http://localhost:4000/orderSucess",
+                        "cancel_url": "http://localhost:4000/payment-failed/"+orderId,
                     },
                     "transactions": [{
                         "amount": {
@@ -432,8 +436,8 @@ module.exports={
                         "payment_method": "paypal"
                     },
                     "redirect_urls": {
-                        "return_url": "https://cozastore.gq/orderSucess",
-                        "cancel_url": "https://cozastore.gq/paymentError"
+                        "return_url": "http://localhost:4000/orderSucess",
+                        "cancel_url": "http://localhost:4000/paymentError"
                     },
                     "transactions": [{
                         "amount": {
@@ -632,9 +636,18 @@ module.exports={
     let status=req.body.status;
     let orderId=req.body.orderId;
     let productId=req.body.productId;
+    let userId=req.session.user._id;
     userHelper.setEachProductStatus(status,orderId,productId).then((response)=>{
-        if(response){
-            res.json({status:true})
+        if(response.orderStatus){
+            userHelper.addToWallet(userId,response.totalAmount).then((response)=>{
+               if(response){
+                   
+                   res.json({status:true})
+               }else{
+            res.json({status:false})
+
+               } 
+            })
         }else{
             res.json({status:false})
         }

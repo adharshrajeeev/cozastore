@@ -42,6 +42,7 @@ module.exports={
             }
             else{
                 userData.password=await bcrypt.hash(userData.password,10)
+                userData.wallet=0
                  db.get().collection(collection.USER_COLLECTION).insertOne(userData).then((data)=>{
                   resolve({status:true})
                 })
@@ -699,7 +700,7 @@ module.exports={
            }
          
         ]).toArray()
-        resolve(total[0].total)
+        resolve(total[0]?.total)
       })
 
      },
@@ -783,7 +784,7 @@ module.exports={
           if(status=='Placed'){
             db.get().collection(collection.CART_COLLECTION).deleteOne({user:ObjectId(order.userId)})
           }
-          resolve(response.insertedId)
+          resolve(response?.insertedId)
          })
       })
      },
@@ -796,7 +797,7 @@ module.exports={
      getCartProductList:(userId)=>{
       return new Promise(async(resolve,reject)=>{
         let cart=await db.get().collection(collection.CART_COLLECTION).findOne({user:ObjectId(userId)})
-        resolve(cart.products)
+        resolve(cart?.products)
       })
      },
 
@@ -918,7 +919,8 @@ module.exports={
   /* -------------------------------------------------------------------------- */
 
   setEachProductStatus:(status,orderId,productId)=>{
-       return new Promise((resolve,reject)=>{
+      let totalAmount=0
+       return new Promise(async(resolve,reject)=>{
         db.get().collection(collection.ORDER_COLLECTION).updateOne({_id:ObjectId(orderId),"products.item":ObjectId(productId)},
         {
           $set:{
@@ -926,8 +928,47 @@ module.exports={
             "products.$.cancelled":true,
           }
         })
-        resolve(true)
-       })
+
+     
+        totalPrice=await db.get().collection(collection.ORDER_COLLECTION).aggregate([
+          {
+           $match:{
+             "_id":ObjectId(orderId)
+           } 
+          },{
+           $unwind:"$products"
+          },
+          {
+           $match:{
+             "products.item":ObjectId(productId)
+           }
+          },
+          {
+           $project: {
+             totalPrice: { $multiply: ["$products.price", "$products.quantity"] }
+           }
+         },
+         // Group to get the sum
+         {
+           $group: {
+             _id: null,
+             totalAmount: { $sum: "$totalPrice" }
+           }
+         }
+          ]).toArray();
+      
+           totalAmount=totalPrice[0].totalAmount;
+          resolve({orderStatus:true,totalAmount})
+      })
+  },
+
+  addToWallet:(userId,totalAmount)=>{
+    return new Promise((resolve,reject)=>{
+      db.get().collection(collection.USER_COLLECTION).updateOne({_id:ObjectId(userId)},{
+        $inc:{wallet:totalAmount}
+      })
+      resolve(true)
+    })
   },
 
  /* -------------------------------------------------------------------------- */

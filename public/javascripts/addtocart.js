@@ -9,7 +9,8 @@ function addToCart(productId){
         success:(response)=>{
             if(response.status){
                 console.log("ajaaxx")
-                let count=$('#cartCount').html()
+                let count=$('#cartCount').attr('data-notify');
+                alert(count,"count")
                 count=parseInt(count)+1
                 $("#cartCount").html(count)
             }
@@ -65,7 +66,7 @@ function razorpayPayment(order){
   },
   "modal": {
     "ondismiss": function(){
-      window.location.replace('https://cozastore.gq/payment-failed/'+order.receipt);
+      window.location.replace('http://localhost:4000/payment-failed/'+order.receipt);
     }
 },
     "prefill": {
