@@ -8,9 +8,7 @@ function addToCart(productId){
         method:'get',
         success:(response)=>{
             if(response.status){
-                console.log("ajaaxx")
                 let count=$('#cartCount').attr('data-notify');
-                alert(count,"count")
                 count=parseInt(count)+1
                 $("#cartCount").html(count)
             }
