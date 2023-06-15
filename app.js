@@ -98,7 +98,7 @@ app.use(function(err, req, res, next) {
 
 
 app.listen(4000,()=>{
-  console.log(`SERVER STARTED AT PORT ${process.env.PORT}`)
+  console.log(`SERVER STARTED AT PORT http://localhost:${process.env.PORT}`)
 })
 
 module.exports = app;

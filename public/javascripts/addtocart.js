@@ -1,22 +1,23 @@
 
 
 
-function addToCart(productId){
-  swal("Sucess", "Product added to Cart", "success")
-    $.ajax({
-        url:'/addToCart/'+productId,
-        method:'get',
-        success:(response)=>{
-            if(response.status){
-                let count=$('#cartCount').attr('data-notify');
-                count=parseInt(count)+1
-                $("#cartCount").html(count)
-            }
-           
-        }
-    })
+function addToCart(productId) {
+  swal("Success", "Product added to Cart", "success");
+  $.ajax({
+    url: '/addToCart/' + productId,
+    method: 'get',
+    success: (response) => {
+      if (response.status) {
+        let countElement = document.getElementById('cartCount');
+        console.log(countElement,"kititi")
+        let count = parseInt(countElement.dataset.notify);
+        count = count + 1;
+        countElement.dataset.notify = count;
+       
+      }
+    }
+  });
 }
-
 
 
 $("#checkOutForm").submit((e)=>{
